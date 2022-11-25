@@ -1,0 +1,33 @@
+.wd-login-row{
+    border-radius:  5px;
+    border: 2px;
+    border-color: black;
+}
+.wd-login-image{
+    width: 100%;
+    height: 100%;
+}
+
+.wd-login-image-register{
+    width: 100%;
+    height: 150%;
+    position: relative;
+    bottom: 10%;
+}
+.wd-image-register{
+    width: 90%;
+    height: 90%;
+}
+.wd-signin-button-container{
+    display: flex;
+    justify-content: center;
+}
+.wd-email{
+    width: 60%;
+}
+.wd-password{
+    width: 60%;
+}
+.wd-registration-row{
+    margin-top: 50px;
+}
