@@ -18,6 +18,14 @@
     width: 90%;
     height: 90%;
 }
+@media (max-width: 992px) {
+    .wd-image-register{
+        width: 80%;
+        height: 65%;
+        position: relative;
+        top: 8%;
+    }
+}
 .wd-signin-button-container{
     display: flex;
     justify-content: center;

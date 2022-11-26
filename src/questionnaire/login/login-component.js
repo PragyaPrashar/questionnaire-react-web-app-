@@ -23,10 +23,12 @@ const LoginComponent = ()=>{
                             <button type="submit" className="btn btn-primary btn-dark  w-75 shadow p-2 mb-5  rounded">Sign In</button>
                         </div>
                         <Link to={"/register"} className={"text-decoration-none text-dark"}>
-                            <h6 className={"d-flex justify-content-center"}>Don't have an account yet? Register here</h6>
+                            <h6 className={"d-flex justify-content-center ms-sm-4"}>Don't have an account yet? Register here</h6>
                         </Link>
 
-
+                        <Link to={"/admin"} className={"text-decoration-none text-dark"}>
+                            <h6 className={"d-flex justify-content-center ms-sm-4"}>Are you an admin? Sign in here</h6>
+                        </Link>
                     </form>
 
                 </div>

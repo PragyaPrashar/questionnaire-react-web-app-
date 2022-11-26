@@ -5,12 +5,11 @@ const RegistrationComponent = ()=>{
     return(
         <div className={"row border border-dark rounded-4 shadow-lg border-2 p-2 wd-registration-row"}>
             <div className={"row rounded-2 wd-login-row"}>
-                <div className={"col-5"}>
+                <div className={"col-lg-5 col-sm-12"}>
                     <form>
                         <div className={"d-flex justify-content-center"}>
                             <h3 className={"mt-2"}>Sign Up</h3>
                         </div>
-
 
                         <div className="form-group mt-5 d-flex justify-content-center">
                             <input type="email" className="form-control shadow w-75 " id="useremail"  placeholder="Name"/>
@@ -41,13 +40,12 @@ const RegistrationComponent = ()=>{
                         <Link to={"/login"} className={"text-decoration-none text-dark"}>
                             <h6 className={"d-flex justify-content-center"}>Already registered? Sign In here</h6>
                         </Link>
-
-
+                        
                     </form>
 
                 </div>
-                <div className={"col-7 mt-5"}>
-                    <img alt={""} src={"../../login.jpg"} className={"wd-image-register rounded-5 ms-5"}/>
+                <div className={"col-lg-7 col-sm-0 mt-5"}>
+                    <img alt={""} src={"../../login.jpg"} className={"wd-image-register rounded-5 ms-5 d-lg-block d-sm-none"}/>
                 </div>
             </div>
         </div>
