@@ -1,0 +1,16 @@
+.wd-profile-pic{
+    width:100px;
+    height:100px;
+}
+.wd-tabs{
+    left:2px;
+}
+.wd-onHover:hover{
+   border-bottom: solid 6px black;
+    font-weight: bold;
+   padding: 6px;
+}
+
+.wd-edit{
+    background: black;
+}
