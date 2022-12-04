@@ -1,0 +1,36 @@
+.wd-logo{
+    position: relative;
+    left:150px;
+    width: 180px;
+    top:5px;
+}
+.wd-profile{
+    position: relative;
+    width:40px;
+height:38px;
+    margin-bottom: 2px;
+    left: 60px;
+    top:5px;
+}
+.wd-search{
+    position: relative;
+    top:-16px;
+left:120px;
+}
+
+.wd-search-border{
+    border: solid 1px gray;
+}
+.wd-pos{
+    position: relative;
+    left:100px;
+    top:12px;
+}
+
+.wd-background{
+    background-color: black;
+}
+.wd-logout{
+    position: relative;
+    top:20px;
+}

@@ -1,18 +1,28 @@
 import React from "react";
 import Navigation from "../navigation";
+import Profile from "./index";
+import HighlightProfile from "../highlight";
+import {Route, Routes} from "react-router";
+import QuestionsAnswers from "../questionsanswers";
+import Followersfollowing from "../followersfollowing";
 
 function ProfileComponent() {
     return (
         <>
-            <div className={"row"}>
-                <h1>Menu Bar</h1>
-            </div>
-            <div className={"row"}>
+            {/*<div className={"row"}>*/}
+            {/*   <Navigation/>*/}
+            {/*</div>*/}
+            <div className={"row mt-3"}>
                 <div className={"col-8"}>
-                    <h1>This is left profile</h1>
+                   <Profile/>
+
+                    <Routes>
+                        <Route index element={<QuestionsAnswers/>}/>
+                        <Route path="/followersfollowing" element={<Followersfollowing/>}/>
+                    </Routes>
                 </div>
                 <div className={"col-4"}>
-                    <h1>This is right profile</h1>
+                    <HighlightProfile/>
                 </div>
             </div>
         </>

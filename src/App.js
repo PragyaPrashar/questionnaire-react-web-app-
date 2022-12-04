@@ -1,22 +1,27 @@
 //import logo from './logo.svg';
 import './App.css';
 import React from "react";
-
+import HomeComponent from "./questionnaire/home";
 import {BrowserRouter} from "react-router-dom";
 import {Routes, Route} from "react-router";
 import Questionnaire from "./questionnaire/index.js";
+import Navigation from "./questionnaire/navigation";
 function App() {
   return (
 
 
       <>
+
     <BrowserRouter>
+      <Navigation/>
       <div className="container">
+
         <Routes>
-          <Route path="/" element={<Questionnaire/>}/>
+          <Route path="/*" element={<Questionnaire/>}/>
         </Routes>
       </div>
     </BrowserRouter>
+
       </>
 
 
