@@ -8,7 +8,6 @@ import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import postsReducer from "./questionsanswers/posts-reducer";
 import LoginComponent from "./login/login-component";
-import React from "react";
 import RegistrationComponent from "./registration/registration-component";
 import AdminComponent from "./admin/admin-component";
 const store=configureStore({
