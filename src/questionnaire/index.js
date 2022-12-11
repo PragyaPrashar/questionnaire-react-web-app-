@@ -4,11 +4,18 @@ import HomeComponent from "./home";
 import EditProfile from "./highlight/edit-profile";
 import React from "react";
 import Questions from "./questions";
+import {configureStore} from "@reduxjs/toolkit";
+import {Provider} from "react-redux";
+import postsReducer from "./questionsanswers/posts-reducer";
 
+const store=configureStore({
+                               reducer: {
+                                   postsData: postsReducer
+                               } });
 function Questionnaire() {
     return (
         <>
-
+            <Provider store={store}>
             <div className={"container"}>
                 <div className="row ">
                 </div>
@@ -20,7 +27,7 @@ function Questionnaire() {
                 </Routes>
 
             </div>
-
+            </Provider>
         </>
     );
 }
