@@ -7,10 +7,12 @@ import Questions from "./questions";
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import postsReducer from "./questionsanswers/posts-reducer";
+import usersReducer from "./profile/profile-reducer"
+
 
 const store=configureStore({
                                reducer: {
-                                   postsData: postsReducer
+                                   postsData: postsReducer, usersData: usersReducer
                                } });
 function Questionnaire() {
     return (
