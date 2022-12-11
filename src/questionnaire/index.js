@@ -10,6 +10,7 @@ import postsReducer from "./questionsanswers/posts-reducer";
 import LoginComponent from "./login/login-component";
 import RegistrationComponent from "./registration/registration-component";
 import AdminComponent from "./admin/admin-component";
+import Navigation from "./navigation";
 const store=configureStore({
                                reducer: {
                                    postsData: postsReducer
@@ -17,8 +18,12 @@ const store=configureStore({
 function Questionnaire(){
     return (
         <>
+
             <Provider store={store}>
+
+                <Navigation/>
                 <div className={"container"}>
+
                     <div className="row ">
                     </div>
                     <Routes>
@@ -26,8 +31,8 @@ function Questionnaire(){
                         <Route path="/profile/*" element={<ProfileComponent/>}/>
                         <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/questions" element={<Questions/>}/>
-                        <Route path="/login" element={<LoginComponent/>}/>
-                        <Route path="/register" element={<RegistrationComponent/>}/>
+                        {/*<Route path="/login" element={<LoginComponent/>}/>*/}
+                        {/*<Route path="/register" element={<RegistrationComponent/>}/>*/}
                         <Route path="/admin" element={<AdminComponent/>}/>
                     </Routes>
 

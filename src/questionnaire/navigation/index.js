@@ -7,13 +7,13 @@ const Navigation=()=>{
 
         <div className="row  border-bottom shadow-lg wd-background bg-gradient p-1">
             <div className="col-2">
-                <Link to="/"><img alt="" src="../../../images/questionnaire_logo.png" className="wd-logo "/></Link>
+                <Link to="/quans/"><img alt="" src="../../../images/questionnaire_logo.png" className="wd-logo "/></Link>
             </div>
             <div className="col-1 ">
-                <Link to="/"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
+                <Link to="/quans/"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
             </div>
             <div className="col-1 ">
-              <Link to="/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
+              <Link to="/quans/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
             </div>
             <div className="col-1 ">
                 <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>
@@ -25,7 +25,7 @@ const Navigation=()=>{
                 </div>
             </div>
             <div className="col-1">
-                <Link to="/profile/"><img alt="" src="../../../images/profile-pic.jpg" className="wd-profile rounded-circle mt-1 shadow"/></Link>
+                <Link to="/quans/profile"><img alt="" src="../../../images/profile-pic.jpg" className="wd-profile rounded-circle mt-1 shadow"/></Link>
             </div>
             <div className="col-2">
                 <h6 className="text-light wd-logout">Logout</h6>

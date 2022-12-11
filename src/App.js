@@ -7,6 +7,7 @@ import {Routes, Route} from "react-router";
 import Questionnaire from "./questionnaire/index.js";
 import Navigation from "./questionnaire/navigation";
 import LoginComponent from "./questionnaire/login/login-component";
+import RegistrationComponent from "./questionnaire/registration/registration-component";
 function App() {
   return (
 
@@ -14,14 +15,20 @@ function App() {
       <>
 
     <BrowserRouter>
-      <Navigation/>
-      <div className="container">
+
+      {/*<div className="container">*/}
 
         <Routes>
-          <Route path="/*" element={<Questionnaire/>}/>
+
+          <Route path="/" element={<LoginComponent/>}/>
+          <Route path="/register" element={<RegistrationComponent/>}/>
+          <Route path="/quans/*" element={<Questionnaire/>}/>
         </Routes>
-      </div>
+
+      {/*</div>*/}
     </BrowserRouter>
+
+
 
       </>
   );
