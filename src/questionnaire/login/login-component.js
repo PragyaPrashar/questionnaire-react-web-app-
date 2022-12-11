@@ -21,7 +21,7 @@ const LoginComponent = ()=>{
 
 
     return(
-        <div className={"row mt-5 border border-dark rounded-4 shadow-lg border-2 p-2"}>
+        <div className={"row mt-5 border border-dark rounded-4 shadow-lg border-2 p-2 wd-login-box container"}>
             <div className={"row rounded-2 wd-login-row"}>
                 <div className={"col-7"}>
                     <img alt={""} src={"../../login.jpg"} className={"wd-login-image rounded-5 p-4"}/>

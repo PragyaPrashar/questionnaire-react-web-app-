@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import "./index.css";
 
 const RegistrationComponent = ()=>{
     return(
-        <div className={"row border border-dark rounded-4 shadow-lg border-2 p-2 wd-registration-row"}>
+        <div className={"row border border-dark rounded-4 shadow-lg border-2 p-2 wd-registration-row container wd-register-box"}>
             <div className={"row rounded-2 wd-login-row"}>
                 <div className={"col-lg-5 col-sm-12"}>
                     <form>

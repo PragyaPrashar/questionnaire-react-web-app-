@@ -8,6 +8,12 @@
     height: 100%;
 }
 
+.wd-login-box{
+position: relative;
+    left:150px;
+    top:140px;
+}
+
 .wd-login-image-register{
     width: 100%;
     height: 150%;
