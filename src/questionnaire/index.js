@@ -12,11 +12,19 @@ import HealthComponent from "./health/health";
 import TechComponent from "./technology";
 import FoodComponent from "./food";
 import DetailsComponent from "./detailspage";
+import {configureStore} from "@reduxjs/toolkit";
+import {Provider} from "react-redux";
+import postsReducer from "./questionsanswers/posts-reducer";
+import usersReducer from "./profile/profile-reducer"
 
+const store=configureStore({
+                               reducer: {
+                                   postsData: postsReducer, usersData: usersReducer
+                               } });
 function Questionnaire() {
     return (
         <>
-
+            <Provider store={store}>
             <div className={"container"}>
                 <div className="row ">
                 </div>
@@ -37,7 +45,7 @@ function Questionnaire() {
                 </Routes>
 
             </div>
-
+            </Provider>
         </>
     );
 }
