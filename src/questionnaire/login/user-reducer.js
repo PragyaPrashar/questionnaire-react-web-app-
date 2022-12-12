@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {loginThunk} from "./login-thunks";
+import {registerUserThunk} from "../registration/registration-thunk";
 const initialState = {
     currentUser: null
 }
@@ -17,7 +18,11 @@ const userSlice = createSlice(
             },
             [loginThunk.rejected]: (state, action) => {
                 console.log("inside login reducer rejected")
-                state.curretUser = null;
+                state.currentUser = null;
+            },
+            [registerUserThunk.fulfilled]: (state,action) =>{
+                console.log("inside register reducer")
+                state.currentUser = action.payload;
             }
         }
 
