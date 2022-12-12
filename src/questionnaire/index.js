@@ -24,27 +24,35 @@ const store=configureStore({
 function Questionnaire() {
     return (
         <>
-            <Provider store={store}>
-            <div className={"container"}>
-                <div className="row ">
-                </div>
-                <Routes>
-                    <Route path="/quans" element={<HomeComponent/>}/>
-                    <Route path="/quans/discover" element={<HomeComponent/>}/>
-                    <Route path="/profile/*" element={<ProfileComponent/>}/>
-                    <Route path="/edit-profile" element={<EditProfile/>}/>
-                    <Route path="/questions" element={<Questions/>}/>
-                    <Route path="/quans/travel" element={<TravelComponent/>}/>
-                    <Route path="/quans/health" element={<HealthComponent/>}/>
-                    <Route path="/quans/technology" element={<TechComponent/>}/>
-                    <Route path="/quans/movies" element={<MoviesComponent/>}/>
-                    <Route path="/quans/food" element={<FoodComponent/>}/>
-                    <Route path="/quans/music" element={<MusicComponent/>}/>
-                    <Route path="/quans/sports" element={<SportsComponent/>}/>
-                    <Route path="/quans/001/details" element={<DetailsComponent/>}/>
-                </Routes>
 
-            </div>
+            <Provider store={store}>
+
+                <Navigation/>
+                <div className={"container"}>
+
+                    <div className="row ">
+                    </div>
+                    <Routes>
+                        <Route path="/quans" element={<HomeComponent/>}/>
+                        <Route path="/quans/discover" element={<HomeComponent/>}/>
+
+                        <Route path="/profile/*" element={<ProfileComponent/>}/>
+                        <Route path="/edit-profile" element={<EditProfile/>}/>
+                        <Route path="/questions" element={<Questions/>}/>
+                        {/*<Route path="/login" element={<LoginComponent/>}/>*/}
+                        {/*<Route path="/register" element={<RegistrationComponent/>}/>*/}
+                        <Route path="/admin" element={<AdminComponent/>}/>
+                        <Route path="/quans/travel" element={<TravelComponent/>}/>
+                        <Route path="/quans/health" element={<HealthComponent/>}/>
+                        <Route path="/quans/technology" element={<TechComponent/>}/>
+                        <Route path="/quans/movies" element={<MoviesComponent/>}/>
+                        <Route path="/quans/food" element={<FoodComponent/>}/>
+                        <Route path="/quans/music" element={<MusicComponent/>}/>
+                        <Route path="/quans/sports" element={<SportsComponent/>}/>
+                        <Route path="/quans/001/details" element={<DetailsComponent/>}/>
+                    </Routes>
+
+                </div>
             </Provider>
         </>
     );

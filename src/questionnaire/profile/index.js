@@ -24,14 +24,14 @@ const Profile = (
     }
 ) => {
 
-
-    const {users, loading} = useSelector(state => state.usersData)
-
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(findUsersThunk());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
+    //
+    // const {users, loading} = useSelector(state => state.usersData)
+    //
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(findUsersThunk());
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // },[]);
 
 
 
@@ -44,17 +44,17 @@ const Profile = (
                          className=" wd-profile-pic rounded-circle shadow "/>
                 </div>
                 <div className="col-7">
-                    <span className="fw-bold display-6">{users.username}</span>
+                    <span className="fw-bold display-6">{user.username}</span>
                     <div className="text-secondary mt-2">
                         <span className="text-secondary">85 followers</span> &#x2022; <span
                         className="text-secondary">50 following</span>
                         <div className="mt-2">
-                            <span className="text-secondary">{users.user_status}</span>
+                            <span className="text-secondary">{user.user_status}</span>
                         </div>
                     </div>
                 </div>
                 <div className="col-3">
-                    <Link to="/edit-profile">
+                    <Link to="/quans/edit-profile">
                         <button
                             className="rounded-pill float-end wd-edit border-0 w-75 text-light"> Edit
                             Profile
@@ -66,20 +66,20 @@ const Profile = (
             <div className="row  pb-1 mt-5 border-bottom">
                 <div className="col-3">
                     <Link className="text-decoration-none text-secondary p-2  bg-gradient"
-                          to={"/profile/"}><span className="wd-onHover">Questions</span></Link>
+                          to={"/quans/profile/"}><span className="wd-onHover">Questions</span></Link>
                 </div>
                 <div className="col-3">
-                    <Link className="text-decoration-none text-secondary p-2" to={"/profile/"}><span
+                    <Link className="text-decoration-none text-secondary p-2" to={"/quans/profile/"}><span
                         className="wd-onHover">Answers</span></Link>
                 </div>
                 <div className="col-3">
                     <Link className="text-decoration-none text-secondary p-2"
-                          to="/profile/followersfollowing/"><span
+                          to="/quans/profile/followersfollowing/"><span
                         className="wd-onHover">Followers</span></Link>
                 </div>
                 <div className="col-3">
                     <Link className="text-decoration-none text-secondary p-2"
-                          to="/profile/followersfollowing/"><span
+                          to="/quans/profile/followersfollowing/"><span
                         className="wd-onHover">Following</span></Link>
                 </div>
             </div>

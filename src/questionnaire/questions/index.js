@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import "./index.css";
 import {useDispatch} from "react-redux";
 import {createPostsThunk} from "../../services/post-thunks";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 const Questions = () => {
 
@@ -16,15 +18,13 @@ const Questions = () => {
         //disPatch(addTuit(whatsHappening));
         const questionObj = {
 
-
             _id: new Date().getTime(),
             question: "",
             question_img: "../../../images/profile-pic.jpg",
             user_id: "prashar.p@northeastern.edu",
             time: 1,
-            genre: ["health","education"],
-            answers: [1,2,3]
-
+            genre: ["health", "education"],
+            answers: [1, 2, 3]
 
         }
 
@@ -35,7 +35,6 @@ const Questions = () => {
         disPatch(createPostsThunk(newQuestion));
 
     }
-
 
     return (<>
         <div className="row mt-5 ms-2">
@@ -68,8 +67,10 @@ const Questions = () => {
                         </div>
 
                         <div className="row mt-2">
-                            <textarea value={questionasked} className="ms-3 w-100 wd-textarea shadow border-0"
-                                      placeholder={"Ask what's in your mind"} onChange={textAreaHandler}></textarea>
+                            <textarea value={questionasked}
+                                      className="ms-3 w-100 wd-textarea shadow border-0"
+                                      placeholder={"Ask what's in your mind"}
+                                      onChange={textAreaHandler}></textarea>
                         </div>
                         <div className="wd-line-width ms-2 mt-5">
                             <hr/>
@@ -82,9 +83,30 @@ const Questions = () => {
 
                     </div>
                     <div className="col-2 mt-5">
+
+
+
+                        {/*<Popup trigger={<button*/}
+                        {/*    className=" mt-5 bg-gradient bg-dark rounded-pill text-light ms-3 border-0 w-75 shadow"*/}
+                        {/*    onClick={postClickHandler}> Ask*/}
+                        {/*</button>}*/}
+                        {/*       position="right center">*/}
+                        {/*    <div>Your question is successfully asked!</div>*/}
+                        {/*    /!*<button>Click here</button>*!/*/}
+                        {/*</Popup>*/}
+
+
                         <button
-                            className=" mt-5 bg-gradient bg-dark rounded-pill text-light ms-3 border-0 w-75 shadow" onClick={postClickHandler}> Ask
+                             className=" mt-5 bg-gradient bg-dark rounded-pill text-light ms-3 border-0 w-75 shadow"
+                            onClick={postClickHandler}> Ask
                         </button>
+
+
+
+
+
+
+
                     </div>
 
                 </div>
