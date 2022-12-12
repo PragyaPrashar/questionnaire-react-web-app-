@@ -7,10 +7,10 @@ const Navigation=()=>{
 
         <div className="row  border-bottom shadow-lg wd-background bg-gradient p-1">
             <div className="col-2">
-                <Link to="/quans/"><img alt="" src="../../../images/questionnaire_logo.png" className="wd-logo "/></Link>
+                <Link to="/quans"><img alt="" src="../../../images/questionnaire_logo.png" className="wd-logo "/></Link>
             </div>
             <div className="col-1 ">
-                <Link to="/quans/"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
+                <Link to="/quans"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
             </div>
             <div className="col-1 ">
               <Link to="/quans/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
