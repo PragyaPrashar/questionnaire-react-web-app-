@@ -25,7 +25,6 @@ const store=configureStore({
                                reducer: {
                                    postsData: postsReducer
                                } });
-function Questionnaire(){
     return (
         <>
 
