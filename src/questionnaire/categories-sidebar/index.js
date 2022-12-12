@@ -10,7 +10,11 @@ const CategoriesSidebar = () => {
 
     return (
         <div className="list-group">
-            <a href="/" className="list-group-item"><i className="bi bi-quora "></i></a>
+            <Link to="/quans" className={`list-group-item
+                    ${active === 'home'?'active':''}`}>
+                <i className="bi bi-quora "></i><span>&nbsp;&nbsp;&nbsp;</span>
+                <span className="d-none d-xxl-inline-block d-xl-inline-block d-lg-none "></span>
+            </Link>
 
             <Link to="/quans/discover" className={`list-group-item
                     ${active === 'discover'?'active':''}`}>

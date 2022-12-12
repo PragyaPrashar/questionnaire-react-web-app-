@@ -29,7 +29,7 @@ function Questionnaire() {
                 <div className="row ">
                 </div>
                 <Routes>
-                    <Route path="/" element={<HomeComponent/>}/>
+                    <Route path="/quans" element={<HomeComponent/>}/>
                     <Route path="/quans/discover" element={<HomeComponent/>}/>
                     <Route path="/profile/*" element={<ProfileComponent/>}/>
                     <Route path="/edit-profile" element={<EditProfile/>}/>

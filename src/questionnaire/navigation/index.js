@@ -10,7 +10,7 @@ const Navigation=()=>{
                 <Link to="/"><img alt="" src="../../../images/questionnaire_logo.png" className="wd-logo "/></Link>
             </div>
             <div className="col-1 ">
-                <Link to="/"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
+                <Link to="/quans"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
             </div>
             <div className="col-1 ">
               <Link to="/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
