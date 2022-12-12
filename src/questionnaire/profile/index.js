@@ -5,24 +5,26 @@ import {useDispatch, useSelector} from "react-redux";
 import {findUsersThunk} from "../../services/profile-thunks";
 
 const Profile = (
-    {
-        user = {
-            _id: 1,
-            username: "Pragya Prashar",
-            user_profile_pic: "../../../images/profile-pic.jpg",
-            user_status: "“Not all those who wander are lost.”",
-            email_id: "prashar.p@northeastern.edu",
-            dob: "4 Nov 1995",
-            address: "1185 Boylston Street, Apt No. 48, Boston, Massachusetts, 02215, United States of America",
-            password: "123",
-            questionsAsked: [1, 2, 3, 4],
-            answersAnswered: [5, 6, 7, 8],
-            followers: [9, 10, 11, 12],
-            following: [13, 14, 15, 16],
-            comments: [16, 18, 19, 20]
-        }
-    }
+    // {
+    //     user = {
+    //         _id: 1,
+    //         username: "Pragya Prashar",
+    //         user_profile_pic: "../../../images/profile-pic.jpg",
+    //         user_status: "“Not all those who wander are lost.”",
+    //         email_id: "prashar.p@northeastern.edu",
+    //         dob: "4 Nov 1995",
+    //         address: "1185 Boylston Street, Apt No. 48, Boston, Massachusetts, 02215, United States of America",
+    //         password: "123",
+    //         questionsAsked: [1, 2, 3, 4],
+    //         answersAnswered: [5, 6, 7, 8],
+    //         followers: [9, 10, 11, 12],
+    //         following: [13, 14, 15, 16],
+    //         comments: [16, 18, 19, 20]
+    //     }
+    // }
 ) => {
+
+    const currentLoggedInUser = useSelector(s=>s.users.currentUser)
 
     //
     // const {users, loading} = useSelector(state => state.usersData)
@@ -44,12 +46,12 @@ const Profile = (
                          className=" wd-profile-pic rounded-circle shadow "/>
                 </div>
                 <div className="col-7">
-                    <span className="fw-bold display-6">{user.username}</span>
+                    <span className="fw-bold display-6">{currentLoggedInUser.username}</span>
                     <div className="text-secondary mt-2">
-                        <span className="text-secondary">85 followers</span> &#x2022; <span
-                        className="text-secondary">50 following</span>
+                        <span className="text-secondary">{currentLoggedInUser.followers.length} followers</span> &#x2022; <span
+                        className="text-secondary">{currentLoggedInUser.following.length} following</span>
                         <div className="mt-2">
-                            <span className="text-secondary">{user.user_status}</span>
+                            <span className="text-secondary">{currentLoggedInUser.user_status}</span>
                         </div>
                     </div>
                 </div>
