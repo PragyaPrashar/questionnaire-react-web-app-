@@ -1,20 +1,19 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {loginThunk} from "./login-thunks";
-
-const userReducer = createSlice(
+const initialState = {
+    currentUser: null
+}
+const userSlice = createSlice(
     {
         name: "users",
-        initialState: {
-            currentUser: {
-                _id: "",
-                password: ""
-            }
-        },
+        initialState,
         extraReducers: {
-            [loginThunk.fulfilled]: (state, action) => {
+            [loginThunk.fulfilled]: (state, { payload }) => {
                 console.log("inside login reducer");
-                state.currentUser._id = action.payload.data._id;
-                state.currentUser.password = action.payload.data.password;
+                state.currentUser = {
+                    _id: payload._id,
+                    password: payload.password
+                }
             },
             [loginThunk.rejected]: (state, action) => {
                 console.log("inside login reducer rejected")
@@ -24,4 +23,4 @@ const userReducer = createSlice(
 
     }
 );
-export default userReducer.reducer;
+export default userSlice.reducer;

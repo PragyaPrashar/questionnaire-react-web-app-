@@ -8,7 +8,7 @@ import LoginComponent from "./questionnaire/login/login-component";
 import RegistrationComponent from "./questionnaire/registration/registration-component";
 import {configureStore} from "@reduxjs/toolkit";
 import postsReducer from "./questionnaire/questionsanswers/posts-reducer";
-import userReducer from "./questionnaire/login/user-reducer";
+import userReducer from "./questionnaire/login/user-reducer.js";
 import {Provider} from "react-redux";
 
 const store = configureStore({

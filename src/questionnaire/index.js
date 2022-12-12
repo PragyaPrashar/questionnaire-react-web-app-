@@ -19,15 +19,15 @@ import usersReducer from "./profile/profile-reducer"
 import Navigation from "./navigation";
 import AdminComponent from "./admin/admin-component";
 
-const store=configureStore({
-                               reducer: {
-                                   postsData: postsReducer, usersData: usersReducer
-                               } });
+// const store=configureStore({
+//                                reducer: {
+//                                    postsData: postsReducer, usersData: usersReducer
+//                                } });
 function Questionnaire() {
     return (
         <>
 
-            <Provider store={store}>
+            {/*<Provider store={store}>*/}
 
                 <Navigation/>
                 <div className={"container"}>
@@ -55,7 +55,7 @@ function Questionnaire() {
                     </Routes>
 
                 </div>
-            </Provider>
+            {/*</Provider>*/}
         </>
     );
 }
