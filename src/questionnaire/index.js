@@ -4,6 +4,16 @@ import HomeComponent from "./home";
 import EditProfile from "./highlight/edit-profile";
 import React from "react";
 import Questions from "./questions";
+import SportsComponent from "./sports";
+import MusicComponent from "./music";
+import MoviesComponent from "./movies";
+import TravelComponent from "./travel";
+import HealthComponent from "./health/health";
+import TechComponent from "./technology";
+import FoodComponent from "./food";
+import DetailsComponent from "./detailspage";
+
+function Questionnaire() {
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import postsReducer from "./questionsanswers/posts-reducer";
@@ -34,6 +44,14 @@ function Questionnaire(){
                         {/*<Route path="/login" element={<LoginComponent/>}/>*/}
                         {/*<Route path="/register" element={<RegistrationComponent/>}/>*/}
                         <Route path="/admin" element={<AdminComponent/>}/>
+                        <Route path="/quans/travel" element={<TravelComponent/>}/>
+                        <Route path="/quans/health" element={<HealthComponent/>}/>
+                        <Route path="/quans/technology" element={<TechComponent/>}/>
+                        <Route path="/quans/movies" element={<MoviesComponent/>}/>
+                        <Route path="/quans/food" element={<FoodComponent/>}/>
+                        <Route path="/quans/music" element={<MusicComponent/>}/>
+                        <Route path="/quans/sports" element={<SportsComponent/>}/>
+                        <Route path="/quans/001/details" element={<DetailsComponent/>}/>
                     </Routes>
 
                 </div>
