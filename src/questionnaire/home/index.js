@@ -1,12 +1,13 @@
 import React from "react";
 import Posts from "../posts";
+import CategoriesSidebar from "../categories-sidebar";
 
 const HomeComponent=()=>{
     return(
        <>
            <div className="row">
        <div className="col-2">
-           Tags (Aish work)
+           <CategoriesSidebar/>
        </div>
            <div className="col-7">
                <Posts/>
