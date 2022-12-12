@@ -16,6 +16,8 @@ import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
 import postsReducer from "./questionsanswers/posts-reducer";
 import usersReducer from "./profile/profile-reducer"
+import Navigation from "./navigation";
+import AdminComponent from "./admin/admin-component";
 
 const store=configureStore({
                                reducer: {
