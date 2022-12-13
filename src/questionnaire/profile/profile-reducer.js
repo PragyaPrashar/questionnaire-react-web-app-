@@ -2,26 +2,12 @@ import {createSlice} from "@reduxjs/toolkit";
 import {updateUsersThunk, createUserThunk, deleteUserThunk, findUsersThunk} from "../../services/profile-thunks";
 
 const initialState = {
-    users: {
-        _id: 1,
-        username: "Pragya Prashar",
-        user_profile_pic: "../../../images/profile-pic.jpg",
-        user_status: "“Not all those who wander are lost.”",
-        email_id: "prashar.p@northeastern.edu",
-        dob: "4 Nov 1995",
-        address: "1185 Boylston Street, Apt No. 48, Boston, Massachusetts, 02215, United States of America",
-        password: "123",
-        questionsAsked: [1, 2, 3, 4],
-        answersAnswered: [5, 6, 7, 8],
-        followers: [9, 10, 11, 12],
-        following: [13, 14, 15, 16],
-        comments: [16, 18, 19, 20]
-    },
+    users: [],
     loading: false
 }
 
 const usersSlice = createSlice({
-                                   name: 'users',
+                                   name: 'profileusers',
                                    initialState,
                                    // reducers: {
                                    //     addTuit(state, action) {
