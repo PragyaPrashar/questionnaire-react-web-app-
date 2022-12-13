@@ -1,19 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import "./index.css"
 import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {setSearchField} from "../search/search-reducer";
+import {loginThunk} from "../login/login-thunks";
 const Navigation=()=>{
 
     let currentLoggedInUser = useSelector(s=>s.users.currentUser)
     // const [currentUser,setCurrentUser]= useState(null)
+    let [searchText,setSearchText] = useState("");
 
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     const logoutHandler=()=>{
         console.log("inside navigation with user \n",currentLoggedInUser)
         currentLoggedInUser = null;
         navigate("/");
+    }
+    const searchHandler = (event)=>{
+        setSearchText(event.target.value);
+        dispatch(setSearchField(searchText))
+        navigate("/quans/search")
     }
     return(
         <>
@@ -33,7 +41,8 @@ const Navigation=()=>{
             </div>
             <div className="col-4">
                 <div className="position-absolute mt-1">
-                 <input className="ps-5 pb-1 w-100 rounded-pill pb-0 border-1 wd-search-border wd-pos shadow-lg" type="text" placeholder="search"/><i
+                 <input className="ps-5 pb-1 w-100 rounded-pill pb-0 border-1 wd-search-border wd-pos shadow-lg" type="search"
+                        placeholder="search"  onChange={(event)=>searchHandler(event)} value={searchText}/><i
                 className="bi bi-search wd-search text-secondary"></i>
                 </div>
             </div>

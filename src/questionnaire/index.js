@@ -18,6 +18,7 @@ import postsReducer from "./questionsanswers/posts-reducer";
 import usersReducer from "./profile/profile-reducer"
 import Navigation from "./navigation";
 import AdminComponent from "./admin/admin-component";
+import SearchComponent from "./search/search-component";
 
 // const store=configureStore({
 //                                reducer: {
@@ -36,6 +37,7 @@ function Questionnaire() {
                     </div>
                     <Routes>
                         <Route path="/" element={<HomeComponent/>}/>
+                        <Route path="/search" element={<SearchComponent/>}/>
                         <Route path="/discover" element={<HomeComponent/>}/>
 
                         <Route path="/profile/*" element={<ProfileComponent/>}/>

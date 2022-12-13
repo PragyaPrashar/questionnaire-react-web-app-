@@ -10,11 +10,13 @@ import {configureStore} from "@reduxjs/toolkit";
 import postsReducer from "./questionnaire/questionsanswers/posts-reducer";
 import userReducer from "./questionnaire/login/user-reducer.js";
 import {Provider} from "react-redux";
+import searchReducer from "./questionnaire/search/search-reducer.js";
 
 const store = configureStore({
                                  reducer: {
                                      postsData: postsReducer,
-                                     users: userReducer
+                                     users: userReducer,
+                                     search : searchReducer
                                  }
                              });
 
