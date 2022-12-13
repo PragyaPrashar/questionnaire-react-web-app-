@@ -1,7 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {editProfileService} from "./edit-profile-service";
 
-import {editedProfileService} from "./edit-profile-service";
+import {getUserByIdService} from "./edit-profile-service";
 
 export const editProfileThunk=createAsyncThunk(
     'users/editprofile', async(editProfile)=>{
@@ -10,9 +10,9 @@ export const editProfileThunk=createAsyncThunk(
     }
 )
 
-export const editedProfileThunk=createAsyncThunk(
+export const getUserByIdThunk=createAsyncThunk(
     'users/editedprofile', async(editedProfile)=>{
-        const res=await editedProfileService(editedProfile);
+        const res=await getUserByIdService(editedProfile);
         return res.data;
     }
 )

@@ -1,7 +1,7 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
-import {editedProfileThunk, editProfileThunk} from "./edit-profile-thunk";
+import {getUserByIdThunk, editProfileThunk} from "./edit-profile-thunk";
 import {registerUserThunk} from "../registration/registration-thunk";
 import {loginThunk} from "../login/login-thunks";
 

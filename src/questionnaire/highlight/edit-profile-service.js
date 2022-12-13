@@ -7,7 +7,8 @@ export const editProfileService=async (editProfile)=>{
     return await axios.put(LOCAL_QUANS_API +"/user/"+ editProfile._id,editProfile)
 }
 
-export const editedProfileService=async(editedProfile)=>{
-    return await axios.get(LOCAL_QUANS_API+"/user/"+editedProfile._id)
+export const getUserByIdService=async(editedProfile)=>{
+    const res =  await axios.get(LOCAL_QUANS_API+"/user/"+editedProfile._id);
+    return res.data
 
 }

@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {editedProfileThunk, editProfileThunk} from "./edit-profile-thunk.js";
+import {getUserByIdThunk, editProfileThunk} from "./edit-profile-thunk.js";
 import {useSelector} from "react-redux";
 
 const initialState={
@@ -26,7 +26,7 @@ const editProfileSlice=createSlice({
             }
 
         },
-        [editedProfileThunk.fulfilled]:(state,{payload})=>{
+        [getUserByIdThunk.fulfilled]:(state, {payload})=>{
             state.currentUser={
                 _id: payload._id,
                 username: payload.username,

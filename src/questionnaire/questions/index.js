@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./index.css";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createPostsThunk} from "../../services/post-thunks";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -8,6 +8,8 @@ import 'reactjs-popup/dist/index.css';
 const Questions = () => {
 
     let [questionasked, setWhatsHappening] = useState('');
+    const currentLoggedInUser = useSelector(s=>s.users.currentUser)
+
 
     const textAreaHandler = (event) => {
         let text = event.target.value;
@@ -16,23 +18,25 @@ const Questions = () => {
     const disPatch = useDispatch();
     const postClickHandler = () => {
         //disPatch(addTuit(whatsHappening));
+
         const questionObj = {
 
             _id: new Date().getTime(),
-            question: "",
             question_img: "../../../images/profile-pic.jpg",
-            user_id: "prashar.p@northeastern.edu",
             time: 1,
             genre: ["health", "education"],
-            answers: [1, 2, 3]
-
-        }
-
-        const newQuestion = {
-            ...questionObj,
+            answers: [1, 2, 3],
+            user_id: currentLoggedInUser._id,
             question: questionasked
+
         }
-        disPatch(createPostsThunk(newQuestion));
+
+        // const newQuestion = {
+        //     ...questionObj,
+        //     // user_id: currentLoggedInUser._id,
+        //     // question: questionasked
+        // }
+        disPatch(createPostsThunk(questionObj));
 
     }
 

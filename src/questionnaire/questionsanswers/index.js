@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import "./index.css";
 import {useDispatch} from "react-redux";
 import {deletePostsThunk} from "../../services/post-thunks";
 import {Link} from "react-router-dom";
+import {getUserByIdThunk} from "../highlight/edit-profile-thunk";
+import {getUserByIdService} from "../highlight/edit-profile-service";
+import {getUserFromId} from "../login/login-service";
 
 const QuestionsAnswers = (
     {
@@ -18,12 +21,22 @@ const QuestionsAnswers = (
     }
 ) => {
 
+    const [userName, setUserName] = useState("");
+
     const dispatch = useDispatch();
     const deletePostHandler = (_id) => {
         console.log("Inside delete handler with id ", postItem._id);
         dispatch(deletePostsThunk(_id));
 
     }
+
+    const promiseUserObj = getUserFromId(postItem.user_id).then((s)=>s);
+    promiseUserObj.then(result => {
+        console.log("result is ",result.username)
+        setUserName(result.username);
+    });
+
+
     return (
 
             <div className="row mt-2 border-bottom pb-1 shadow-sm">
@@ -33,7 +46,7 @@ const QuestionsAnswers = (
                 </div>
                 <div className="col-10 mt-2">
 
-                    <h6>Pragya Prashar</h6>
+                    <h6>{userName}</h6>
                     <h6 className="text-secondary fw-light">{postItem.time}</h6>
 
                 </div>
