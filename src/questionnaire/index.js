@@ -36,7 +36,7 @@ function Questionnaire() {
                     <div className="row ">
                     </div>
                     <Routes>
-                        <Route path="/" element={<HomeComponent/>}/>
+                        <Route path="/*" element={<HomeComponent/>}/>
                         <Route path="/search" element={<SearchComponent/>}/>
                         <Route path="/discover" element={<HomeComponent/>}/>
 

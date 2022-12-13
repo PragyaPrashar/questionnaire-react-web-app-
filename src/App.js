@@ -12,13 +12,15 @@ import userReducer from "./questionnaire/login/user-reducer.js";
 import {Provider} from "react-redux";
 import searchReducer from "./questionnaire/search/search-reducer.js";
 import editProfileReducer from "./questionnaire/highlight/edit-profile-reducer";
+import profileReducer from "./questionnaire/profile/profile-reducer.js";
 
 const store = configureStore({
                                  reducer: {
                                      postsData: postsReducer,
                                      users: userReducer,
                                      search : searchReducer,
-                                     editProfile:editProfileReducer
+                                     editProfile:editProfileReducer,
+                                     profileusers:profileReducer
                                  }
                              });
 
