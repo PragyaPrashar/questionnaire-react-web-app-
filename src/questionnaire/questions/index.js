@@ -4,6 +4,8 @@ import {useDispatch} from "react-redux";
 import {createPostsThunk} from "../../services/post-thunks";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import NewsComponent from "../newsAPI";
+import WeatherComponent from "../weatherAPI";
 
 const Questions = () => {
 
@@ -114,7 +116,9 @@ const Questions = () => {
             </div>
 
             <div className="col-4 shadow-sm bg-gradient bg-light wd-height">
-                Api's (Aish will do this work)
+                <NewsComponent/>
+                <br/>
+                <WeatherComponent/>
             </div>
         </div>
 

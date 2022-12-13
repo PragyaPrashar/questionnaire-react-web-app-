@@ -1,0 +1,16 @@
+.news-app {
+    display: flex;
+    justify-content: center;
+    border: 2px solid;
+}
+
+.new-item {
+    width: 100% ;
+    padding: 20px;
+    border: 2px solid;
+    margin-bottom: 10px;
+}
+
+.news-img {
+    width: 100%;
+}
