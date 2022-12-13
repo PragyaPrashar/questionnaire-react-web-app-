@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {loginThunk} from "./login-thunks";
 import {registerUserThunk} from "../registration/registration-thunk";
+
 const initialState = {
     currentUser: null
 }
@@ -22,7 +23,7 @@ const userSlice = createSlice(
         name: "users",
         initialState,
         extraReducers: {
-            [loginThunk.fulfilled]: (state, { payload }) => {
+            [loginThunk.fulfilled]: (state, {payload}) => {
                 console.log("inside login reducer");
                 state.currentUser = {
                     _id: payload._id,
@@ -37,17 +38,17 @@ const userSlice = createSlice(
                     followers: payload.followers,
                     following: payload.following,
                     comments: payload.comments,
-
                 }
+                // console.log("current logged user after update ",state.currentUser)
             },
             [loginThunk.rejected]: (state, action) => {
                 console.log("inside login reducer rejected")
                 state.currentUser = null;
             },
-            [registerUserThunk.fulfilled]: (state,action) =>{
+            [registerUserThunk.fulfilled]: (state, action) => {
                 console.log("inside register reducer")
                 state.currentUser = action.payload;
-                console.log("current registered user is \n",state.currentUser)
+                console.log("current registered user is \n", state.currentUser)
             }
         }
 

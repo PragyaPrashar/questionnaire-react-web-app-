@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "../navigation";
 import Profile from "./index";
-import HighlightProfile from "../highlight";
+import HighlightProfile from "../highlight/editprofilehighlight";
 import {Route, Routes} from "react-router";
 import QuestionsAnswers from "../questionsanswers";
 import Followersfollowing from "../followersfollowing";
