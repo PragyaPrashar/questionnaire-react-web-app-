@@ -8,7 +8,8 @@ import 'reactjs-popup/dist/index.css';
 const Questions = () => {
 
     let [questionasked, setWhatsHappening] = useState('');
-    const currentLoggedInUser = useSelector(s=>s.users.currentUser)
+    const currentLoggedInUser = useSelector(s=>s.users.currentUser);
+    const [selectedGenre, setSelectedGenre] = useState("");
 
 
     const textAreaHandler = (event) => {
@@ -17,28 +18,22 @@ const Questions = () => {
     }
     const disPatch = useDispatch();
     const postClickHandler = () => {
-        //disPatch(addTuit(whatsHappening));
 
         const questionObj = {
 
             _id: new Date().getTime(),
             question_img: "../../../images/profile-pic.jpg",
             time: 1,
-            genre: ["health", "education"],
+            genre: selectedGenre,
             answers: [1, 2, 3],
             user_id: currentLoggedInUser._id,
             question: questionasked
 
         }
-
-        // const newQuestion = {
-        //     ...questionObj,
-        //     // user_id: currentLoggedInUser._id,
-        //     // question: questionasked
-        // }
         disPatch(createPostsThunk(questionObj));
 
     }
+    console.log("selected genre is ",selectedGenre)
 
     return (<>
         <div className="row mt-5 ms-2">

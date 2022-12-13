@@ -1,36 +1,40 @@
-.wd-logo{
-    position: relative;
-    left:150px;
+.wd-logo {
+    /*position: relative;*/
+    /*left:150px;*/
     width: 180px;
-    top:5px;
-}
-.wd-profile{
-    position: relative;
-    width:40px;
-height:38px;
-    margin-bottom: 2px;
-    left: 60px;
-    top:5px;
-}
-.wd-search{
-    position: relative;
-    top:-16px;
-left:120px;
+    /*top:5px;*/
 }
 
-.wd-search-border{
+.wd-profile {
+    /*position: relative;*/
+    width: 40px;
+    height: 38px;
+    /*margin-bottom: 2px;*/
+    /*left: 60px;*/
+    /*top: 5px;*/
+}
+
+.wd-search {
+    position: relative;
+    top: -13px;
+    left: 120px;
+}
+
+.wd-search-border {
     border: solid 1px gray;
 }
-.wd-pos{
+
+.wd-pos {
     position: relative;
-    left:100px;
-    top:12px;
+    left: 100px;
+    top: 12px;
 }
 
-.wd-background{
+.wd-background {
     background-color: black;
 }
-.wd-logout{
+
+.wd-logout {
     position: relative;
-    top:20px;
+    top: 20px;
 }
