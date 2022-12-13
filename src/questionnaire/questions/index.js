@@ -54,16 +54,14 @@ const Questions = () => {
 
                             <select className="border-1 shadow ms-3">
                                 <option value="genre">Select a genre:</option>
-                                <option value="Beauty">Beauty</option>
-                                <option value="Entertainment">Entertainment</option>
-                                <option value="Education">Education</option>
-                                <option value="Food">Food</option>
+                                <option value="Discover">Discover</option>
+                                <option value="Travel">Travel</option>
                                 <option value="Health">Health</option>
-                                <option value="News">
-                                    News
-                                </option>
-                                <option value="Sports">Sports</option>
                                 <option value="Technology">Technology</option>
+                                <option value="Movies">Movies</option>
+                                <option value="Food">Food</option>
+                                <option value="Music">Music</option>
+                                <option value="Sports">Sports</option>
 
                             </select>
 

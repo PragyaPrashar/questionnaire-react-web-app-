@@ -39,17 +39,22 @@ const Navigation=()=>{
             <div className="col-1 ">
                 <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>
             </div>
-            <div className="col-4">
+            <div className="col-1 ">
+                <i className="bi bi-people-fill fs-4 text-light wd-pos"></i>
+                {/*<i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>*/}
+            </div>
+            <div className="col-3">
                 <div className="position-absolute mt-1">
                  <input className="ps-5 pb-1 w-100 rounded-pill pb-0 border-1 wd-search-border wd-pos shadow-lg" type="search"
                         placeholder="search"  onChange={(event)=>searchHandler(event)} value={searchText}/><i
                 className="bi bi-search wd-search text-secondary"></i>
                 </div>
             </div>
+
             <div className="col-1">
                 <Link to="/quans/profile"><img alt="" src="../../../images/profile-pic.jpg" className="wd-profile rounded-circle mt-1 shadow"/></Link>
             </div>
-            <div className="col-2">
+            <div className="col-1">
                 <h6 className="text-light wd-logout" onClick={logoutHandler}>Logout</h6>
             </div>
         </div>
