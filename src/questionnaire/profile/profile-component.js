@@ -6,6 +6,7 @@ import {Route, Routes} from "react-router";
 import QuestionsAnswers from "../questionsanswers";
 import Followersfollowing from "../followersfollowing";
 import {useSelector} from "react-redux";
+import ProfileQuestions from "./profile-questions";
 
 function ProfileComponent() {
     // you need logged in user object
@@ -36,7 +37,7 @@ function ProfileComponent() {
 
 
 
-                        <Route index element={<QuestionsAnswers/>}/>
+                        <Route index element={<ProfileQuestions/>}/>
 
                         <Route path="/followersfollowing" element={<Followersfollowing/>}/>
                     </Routes>
