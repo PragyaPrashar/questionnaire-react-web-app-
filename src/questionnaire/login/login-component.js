@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 import "./index.css"
 import {Link} from "react-router-dom";
-import axios from "axios";
-import * as loginService from "./login-service.js"
 import {useDispatch, useSelector} from "react-redux";
 import {loginThunk} from "./login-thunks";
+import { useNavigate } from "react-router-dom";
 const LoginComponent = ()=>{
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -12,10 +11,7 @@ const LoginComponent = ()=>{
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
 
     const dispatch = useDispatch();
-
-
-    let invalidPasswordAlert = true;
-    let path = "";
+    const navigate = useNavigate();
     const loginHandler = ()=>{
         const  loginDetails = {
             _id:email,
@@ -23,13 +19,12 @@ const LoginComponent = ()=>{
         }
         console.log("sending login object \t",loginDetails);
 
-         dispatch(loginThunk(JSON.stringify(loginDetails)));
+         dispatch(loginThunk(loginDetails)).then(()=>{
+             navigate("/quans");
+         });
 
-        //console.log("response after dispatch is ",res);
         if(currentLoggedInUser!==null && currentLoggedInUser!==undefined){
             console.log("logged in user is ",currentLoggedInUser)
-            invalidPasswordAlert = false;
-            path = "/quans";
         }else {
             console.log("logged in user not found");
 

@@ -19,15 +19,15 @@ import usersReducer from "./profile/profile-reducer"
 import Navigation from "./navigation";
 import AdminComponent from "./admin/admin-component";
 
-const store=configureStore({
-                               reducer: {
-                                   postsData: postsReducer, usersData: usersReducer
-                               } });
+// const store=configureStore({
+//                                reducer: {
+//                                    postsData: postsReducer, usersData: usersReducer
+//                                } });
 function Questionnaire() {
     return (
         <>
 
-            <Provider store={store}>
+            {/*<Provider store={store}>*/}
 
                 <Navigation/>
                 <div className={"container"}>
@@ -35,8 +35,8 @@ function Questionnaire() {
                     <div className="row ">
                     </div>
                     <Routes>
-                        <Route path="/quans" element={<HomeComponent/>}/>
-                        <Route path="/quans/discover" element={<HomeComponent/>}/>
+                        <Route path="/" element={<HomeComponent/>}/>
+                        <Route path="/discover" element={<HomeComponent/>}/>
 
                         <Route path="/profile/*" element={<ProfileComponent/>}/>
                         <Route path="/edit-profile" element={<EditProfile/>}/>
@@ -44,18 +44,18 @@ function Questionnaire() {
                         {/*<Route path="/login" element={<LoginComponent/>}/>*/}
                         {/*<Route path="/register" element={<RegistrationComponent/>}/>*/}
                         <Route path="/admin" element={<AdminComponent/>}/>
-                        <Route path="/quans/travel" element={<TravelComponent/>}/>
-                        <Route path="/quans/health" element={<HealthComponent/>}/>
-                        <Route path="/quans/technology" element={<TechComponent/>}/>
-                        <Route path="/quans/movies" element={<MoviesComponent/>}/>
-                        <Route path="/quans/food" element={<FoodComponent/>}/>
-                        <Route path="/quans/music" element={<MusicComponent/>}/>
-                        <Route path="/quans/sports" element={<SportsComponent/>}/>
-                        <Route path="/quans/001/details" element={<DetailsComponent/>}/>
+                        <Route path="/travel" element={<TravelComponent/>}/>
+                        <Route path="/health" element={<HealthComponent/>}/>
+                        <Route path="/technology" element={<TechComponent/>}/>
+                        <Route path="/movies" element={<MoviesComponent/>}/>
+                        <Route path="/food" element={<FoodComponent/>}/>
+                        <Route path="/music" element={<MusicComponent/>}/>
+                        <Route path="/sports" element={<SportsComponent/>}/>
+                        <Route path="/001/details" element={<DetailsComponent/>}/>
                     </Routes>
 
                 </div>
-            </Provider>
+            {/*</Provider>*/}
         </>
     );
 }

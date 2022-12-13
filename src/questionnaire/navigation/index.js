@@ -1,7 +1,20 @@
 import React from "react";
 import "./index.css"
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
+import { useNavigate } from "react-router-dom";
 const Navigation=()=>{
+
+    let currentLoggedInUser = useSelector(s=>s.users.currentUser)
+    // const [currentUser,setCurrentUser]= useState(null)
+
+    const navigate = useNavigate();
+
+    const logoutHandler=()=>{
+        console.log("inside navigation with user \n",currentLoggedInUser)
+        currentLoggedInUser = null;
+        navigate("/");
+    }
     return(
         <>
 
@@ -28,7 +41,7 @@ const Navigation=()=>{
                 <Link to="/quans/profile"><img alt="" src="../../../images/profile-pic.jpg" className="wd-profile rounded-circle mt-1 shadow"/></Link>
             </div>
             <div className="col-2">
-                <h6 className="text-light wd-logout">Logout</h6>
+                <h6 className="text-light wd-logout" onClick={logoutHandler}>Logout</h6>
             </div>
         </div>
 
