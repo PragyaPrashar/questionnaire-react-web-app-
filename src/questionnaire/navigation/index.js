@@ -40,7 +40,7 @@ const Navigation=()=>{
                 <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>
             </div>
             <div className="col-1 ">
-                <i className="bi bi-people-fill fs-4 text-light wd-pos"></i>
+                <Link to="/quans/users"><i className="bi bi-people-fill fs-4 text-light wd-pos"></i></Link>
                 {/*<i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>*/}
             </div>
             <div className="col-4">
