@@ -72,12 +72,12 @@ const Profile = (
                 </div>
                 <div className="col-3">
                     <Link className="text-decoration-none text-secondary p-2"
-                          to="/quans/profile/followersfollowing/"><span
+                          to="/quans/profile/followers"><span
                         className="wd-onHover">Followers</span></Link>
                 </div>
                 <div className="col-3">
                     <Link className="text-decoration-none text-secondary p-2"
-                          to="/quans/profile/followersfollowing/"><span
+                          to="/quans/profile/following"><span
                         className="wd-onHover">Following</span></Link>
                 </div>
             </div>

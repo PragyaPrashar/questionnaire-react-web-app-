@@ -5,7 +5,9 @@ import {findUsersThunk} from "../services/profile-thunks";
 
 
 const Users =()=>{
-    const {users, loading} = useSelector(state => state.profileusers)
+    let {users, loading} = useSelector(state => state.profileusers)
+    const currentLoggedInUser = useSelector(s=>s.users.currentUser);
+    users=users.filter(item=>item._id!==currentLoggedInUser._id)
     console.log("Users are"+users)
     const dispatch = useDispatch();
     useEffect(() => {

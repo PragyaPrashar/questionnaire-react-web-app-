@@ -4,7 +4,7 @@ import Profile from "./index";
 import HighlightProfile from "../highlight/editprofilehighlight";
 import {Route, Routes} from "react-router";
 import QuestionsAnswers from "../questionsanswers";
-import Followersfollowing from "../followersfollowing";
+import Following from "../followersfollowing";
 import {useSelector} from "react-redux";
 import ProfileQuestions from "./profile-questions";
 
@@ -39,7 +39,8 @@ function ProfileComponent() {
 
                         <Route index element={<ProfileQuestions/>}/>
 
-                        <Route path="/followersfollowing" element={<Followersfollowing/>}/>
+                        {/*<Route path="/profile/followers" element={<Followersfollowing arr={currentLoggedInUser.followers} s={"followers"}/>}/>*/}
+                        <Route path="/following" element={<Following/>}/>
                     </Routes>
                 </div>
                 <div className={"col-4"}>
