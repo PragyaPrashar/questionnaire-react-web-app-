@@ -2,13 +2,27 @@ import React,{useEffect} from "react";
 import {useDispatch,useSelector} from "react-redux";
 import {findPostsThunk} from "../../services/post-thunks";
 import Questions from "./questions";
+import {useLocation} from "react-router";
 
 
-const ProfileQuestions =()=>{
+const ProfileQuestions =(
+    {user}
+)=>{
     let {posts, loading} = useSelector(state => state.postsData)
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
-    posts = posts.filter(post => post.user_id=== currentLoggedInUser._id)
+    // posts = posts.filter(post => post.user_id=== currentLoggedInUser._id)
 
+
+    // const location = useLocation();
+    //
+    // if(location!==undefined&&location.state!==null){
+    //     const {data} = location.state;
+    //     console.log("location state is ",location.state)
+    //     if(data!==null && data._id!==currentLoggedInUser._id) {
+    //         user = data
+    //     }
+    // }
+    let filteredPosts = posts.filter(post => post.user_id=== user._id)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(findPostsThunk());
@@ -32,7 +46,7 @@ const ProfileQuestions =()=>{
                         }
 
                         {
-                            posts.map(item=> <Questions key={item._id} postItem={item}/>)
+                            filteredPosts.map(item=> <Questions key={item._id} postItem={item}/>)
                         }
 
                     </ul>

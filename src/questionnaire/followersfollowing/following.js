@@ -5,7 +5,8 @@ import FollowingComponent from "./following-component";
 import {getUserFromId} from "../login/login-service";
 import {findUsersThunk} from "../../services/profile-thunks";
 
-const Following = () => {
+const Following = (
+) => {
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
     let arr = currentLoggedInUser.following;
     let {users, loading} = useSelector(state => state.profileusers)

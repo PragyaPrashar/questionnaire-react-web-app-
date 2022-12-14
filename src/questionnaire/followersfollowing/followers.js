@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import FollowerComponent from "./follower-component";
 import {findUsersThunk} from "../../services/profile-thunks";
 
-const Followers = () => {
+const Followers = (
+) => {
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
     let arr = currentLoggedInUser.followers;
     let {users,loading}=useSelector(state=>state.profileusers)
