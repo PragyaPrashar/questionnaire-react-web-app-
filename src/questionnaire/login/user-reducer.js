@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {loginThunk} from "./login-thunks";
 import {registerUserThunk} from "../registration/registration-thunk";
 import {followUserThunk} from "../followersfollowing/following-followers-thunk";
+import {unfollowUserService} from "../followersfollowing/following-followers-service";
 
 const initialState = {
     currentUser: null
@@ -55,6 +56,10 @@ const userSlice = createSlice(
                 console.log("This followUser Thunk")
                 state.currentUser=action.payload;
                 console.log("current logged user follower \n", state.currentUser)
+            },
+
+            [unfollowUserService.fulfilled]:(state,action)=>{
+                state.currentUser=action.payload;
             }
         }
 

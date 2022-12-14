@@ -45,8 +45,8 @@ const Profile = (
                 <div className="col-7">
                     <span className="fw-bold display-6">{currentLoggedInUser.username}</span>
                     <div className="text-secondary mt-2">
-                        <span className="text-secondary">{currentLoggedInUser.followers.length} followers</span> &#x2022;
-                        <span className="text-secondary">{currentLoggedInUser.following.length} following</span>
+                        <span className="text-secondary">{currentLoggedInUser.followers.length} followers</span>  &#x2022;
+                         <span className="text-secondary"> {currentLoggedInUser.following.length} following</span>
                         <div className="mt-2">
                             <span className="text-secondary">{currentLoggedInUser.user_status}</span>
                         </div>

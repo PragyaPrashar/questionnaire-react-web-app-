@@ -7,7 +7,10 @@ import {findUsersThunk} from "../services/profile-thunks";
 const Users =()=>{
     let {users, loading} = useSelector(state => state.profileusers)
     const currentLoggedInUser = useSelector(s=>s.users.currentUser);
-    users=users.filter(item=>item._id!==currentLoggedInUser._id)
+    if(currentLoggedInUser!==null && currentLoggedInUser!==undefined){
+        users=users.filter(item=>item._id!==currentLoggedInUser._id)
+    }
+
     console.log("Users are"+users)
     const dispatch = useDispatch();
     useEffect(() => {
@@ -17,9 +20,7 @@ const Users =()=>{
 
 
     return(
-        <>
-
-            <div className="row mt-2">
+                <div className="row mt-2">
 
                     <ul className="list-group">
                         {/*{*/}
@@ -37,9 +38,8 @@ const Users =()=>{
 
                     </ul>
 
-            </div>
+                </div>
 
-        </>
     );
 }
 export default Users;
