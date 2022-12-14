@@ -2,16 +2,19 @@ import React, {useState} from "react";
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
 import {createPostsThunk} from "../../services/post-thunks";
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import NewsComponent from "../newsAPI";
 import WeatherComponent from "../weatherAPI";
-
+import {useNavigate} from "react-router-dom";
+import ModalComponent from "../modal/modalComponent";
 const Questions = () => {
 
     let [questionasked, setWhatsHappening] = useState('');
     const currentLoggedInUser = useSelector(s=>s.users.currentUser);
     const [selectedGenre, setSelectedGenre] = useState("");
+    // const navigate = useNavigate();
+
+    const [showModal, setShowModal] = useState(false);
 
 
     const textAreaHandler = (event) => {
@@ -21,23 +24,32 @@ const Questions = () => {
     const disPatch = useDispatch();
     const postClickHandler = () => {
 
-        const questionObj = {
+        if(currentLoggedInUser === null || currentLoggedInUser=== undefined){
+            setShowModal(true)
+        }else{
 
-            _id: new Date().getTime(),
-            question_img: "../../../images/profile-pic.jpg",
-            time: 1,
-            genre: selectedGenre,
-            answers: [1, 2, 3],
-            user_id: currentLoggedInUser._id,
-            question: questionasked
+            const questionObj = {
 
+                _id: new Date().getTime(),
+                question_img: "../../../images/profile-pic.jpg",
+                time: 1,
+                genre: selectedGenre,
+                answers: [1, 2, 3],
+                user_id: currentLoggedInUser._id,
+                question: questionasked
+
+            }
+            disPatch(createPostsThunk(questionObj));
         }
-        disPatch(createPostsThunk(questionObj));
+
 
     }
     console.log("selected genre is ",selectedGenre)
 
     return (<>
+        {
+            showModal && <ModalComponent initialValue={showModal}></ModalComponent>
+        }
         <div className="row mt-5 ms-2">
             <div className="col-8 ">
                 <div className="row  w-100 h-100 shadow">
@@ -49,7 +61,7 @@ const Questions = () => {
 
                         <div className="row  w-75">
 
-                            <select className="border-1 shadow ms-3">
+                            <select className="border-1 shadow ms-3" onChange={(event)=>setSelectedGenre(event.target.value)}>
                                 <option value="genre">Select a genre:</option>
                                 <option value="Discover">Discover</option>
                                 <option value="Travel">Travel</option>

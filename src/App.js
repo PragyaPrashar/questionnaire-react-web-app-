@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './App.css';
 import React from "react";
 import {BrowserRouter} from "react-router-dom";
@@ -13,6 +12,7 @@ import {Provider} from "react-redux";
 import searchReducer from "./questionnaire/search/search-reducer.js";
 import editProfileReducer from "./questionnaire/highlight/edit-profile-reducer";
 import profileReducer from "./questionnaire/profile/profile-reducer.js";
+import ModalComponent from "./questionnaire/modal/modalComponent";
 
 const store = configureStore({
                                  reducer: {

@@ -12,24 +12,14 @@ import HealthComponent from "./health/health";
 import TechComponent from "./technology";
 import FoodComponent from "./food";
 import DetailsComponent from "./detailspage";
-import {configureStore} from "@reduxjs/toolkit";
-import {Provider} from "react-redux";
-import postsReducer from "./questionsanswers/posts-reducer";
-import usersReducer from "./profile/profile-reducer"
 import Navigation from "./navigation";
 import AdminComponent from "./admin/admin-component";
 import SearchComponent from "./search/search-component";
+import ModalComponent from "./modal/modalComponent";
 
-// const store=configureStore({
-//                                reducer: {
-//                                    postsData: postsReducer, usersData: usersReducer
-//                                } });
 function Questionnaire() {
     return (
         <>
-
-            {/*<Provider store={store}>*/}
-
                 <Navigation/>
                 <div className={"container"}>
 
@@ -39,6 +29,7 @@ function Questionnaire() {
                         <Route path="/*" element={<HomeComponent/>}/>
                         <Route path="/search" element={<SearchComponent/>}/>
                         <Route path="/discover" element={<HomeComponent/>}/>
+                        <Route path={"/modal"} element={<ModalComponent/>}/>
 
                         <Route path="/profile/*" element={<ProfileComponent/>}/>
                         <Route path="/edit-profile" element={<EditProfile/>}/>
@@ -55,9 +46,7 @@ function Questionnaire() {
                         <Route path="/sports" element={<SportsComponent/>}/>
                         <Route path="/001/details" element={<DetailsComponent/>}/>
                     </Routes>
-
                 </div>
-            {/*</Provider>*/}
         </>
     );
 }
