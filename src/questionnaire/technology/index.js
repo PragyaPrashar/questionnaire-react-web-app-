@@ -1,6 +1,7 @@
 import React from "react";
 import Posts from "../posts";
 import CategoriesSidebar from "../categories-sidebar";
+import NewsComponentTech from "./news-api";
 
 const TechComponent=()=>{
     return(
@@ -13,7 +14,7 @@ const TechComponent=()=>{
                     <Posts/>
                 </div>
                 <div className="col-3">
-                    API calls for tech (Aish work)
+                    <NewsComponentTech/>
                 </div>
             </div>
         </>

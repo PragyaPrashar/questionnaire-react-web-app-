@@ -1,6 +1,7 @@
 import React from "react";
 import Posts from "../posts";
 import CategoriesSidebar from "../categories-sidebar";
+import NewsComponentMovies from "./news-api";
 
 const MoviesComponent=()=>{
     return(
@@ -13,7 +14,7 @@ const MoviesComponent=()=>{
                     <Posts/>
                 </div>
                 <div className="col-3">
-                    API calls for movies (Aish work)
+                    <NewsComponentMovies/>
                 </div>
             </div>
         </>

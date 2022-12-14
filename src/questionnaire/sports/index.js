@@ -1,6 +1,7 @@
 import React from "react";
 import Posts from "../posts";
 import CategoriesSidebar from "../categories-sidebar";
+import NewsComponentSports from "./news-api";
 
 const SportsComponent=()=>{
     return(
@@ -13,7 +14,7 @@ const SportsComponent=()=>{
                     <Posts/>
                 </div>
                 <div className="col-3">
-                    API calls for sports (Aish work)
+                    <NewsComponentSports/>
                 </div>
             </div>
         </>
