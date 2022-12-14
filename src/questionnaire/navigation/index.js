@@ -50,13 +50,15 @@ const Navigation=()=>{
                     <i className="bi bi-search wd-search text-secondary"></i>
                 </div>
             </div>
-
             {
                 currentLoggedInUser &&
                 <div className="col-1">
                     <Link to="/quans/profile"><img alt="" src="../../../images/profile-pic.jpg" className="wd-profile rounded-circle shadow mt-2 ms-lg-3"/></Link>
                 </div>
-                &&
+
+            }
+            {
+                currentLoggedInUser &&
                 <div className="col-1">
                     <h6 className="text-light wd-logout" onClick={logoutHandler}>Logout</h6>
                 </div>
