@@ -1,5 +1,6 @@
 import React from "react";
 import CategoriesSidebar from "../categories-sidebar";
+import NewsComponent from "../newsAPI";
 
 const DetailsComponent=()=>{
     return(
@@ -14,7 +15,7 @@ const DetailsComponent=()=>{
                     <p>Elementum nisi quis eleifend quam adipiscing vitae proin sagittis nisl. Cras ornare arcu dui vivamus arcu felis bibendum ut. Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Vitae auctor eu augue ut lectus. Congue nisi vitae suscipit tellus mauris a diam maecenas sed. Quam quisque id diam vel quam. Ipsum nunc aliquet bibendum enim facilisis gravida neque. Nullam vehicula ipsum a arcu cursus vitae congue. Egestas sed tempus urna et pharetra pharetra. Enim nunc faucibus a pellentesque sit amet porttitor eget. Nisl tincidunt eget nullam non. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Lacinia at quis risus sed vulputate odio ut enim blandit. Duis at consectetur lorem donec massa sapien faucibus et molestie. Malesuada fames ac turpis egestas. Aliquet eget sit amet tellus cras adipiscing enim eu turpis. Ut lectus arcu bibendum at. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi. Commodo sed egestas egestas fringilla phasellus faucibus scelerisque eleifend. Id interdum velit laoreet id donec. Nunc lobortis mattis aliquam faucibus purus in massa. Lectus mauris ultrices eros in cursus turpis massa tincidunt.</p>
                 </div>
                 <div className="col-3">
-                    API calls for health (Aish work)
+                    <NewsComponent/>
                 </div>
             </div>
         </>
