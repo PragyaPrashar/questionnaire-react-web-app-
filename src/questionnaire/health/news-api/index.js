@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import NewsListHealth from "./news-list";
+import "../../newsAPI/newsitem.css"
 
 function NewsComponentHealth(){
     return(
         <div>
-            <h1>News App Health</h1>
             <NewsListHealth/>
         </div>
     );

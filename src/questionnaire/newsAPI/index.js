@@ -3,8 +3,8 @@ import NewsList from "./news-list";
 
 function NewsComponent(){
     return(
-        <div>
-            <h1>News App</h1>
+        <div className= "wd-header justify-content-center">
+            <h5>Trending Today</h5>
             <NewsList/>
         </div>
     );

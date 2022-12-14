@@ -9,7 +9,7 @@ const NewsListMusic = () => {
     useEffect(()=>{
         const getArticles = async () => {
 
-            fetch(`https://newsapi.org/v2/everything?q=music&apiKey=f74e7bc8eebb430980f2f83de2cd93e2`)
+            fetch(`https://newsapi.org/v2/everything?q=music&apiKey=b961a950d9754aa8be3d2457a7a76422`)
                 .then((res) => res.json())
                 .then((result) => {
                     console.log(result.articles[1]);

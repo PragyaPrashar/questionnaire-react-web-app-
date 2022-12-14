@@ -1,7 +1,31 @@
 .news-app {
     display: flex;
     justify-content: center;
-    border: 2px solid;
+    background: black;
+    color:white;
+    padding: 8px;
+
+}
+
+.wd-header {
+    background: black;
+    color:white;
+    padding: 8px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.wd-text-color{
+    font-size: large;
+    font-weight: bolder;
+    text-decoration: none;
+    color:white;
+}
+
+.news-description{
+    color: #FAFAFA;
+    font-size: small;
+
 }
 
 .new-item {

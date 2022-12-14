@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
 import NewsItemTravel from "./news-item";
 
 
@@ -9,7 +8,7 @@ const NewsListTravel = () => {
     useEffect(()=>{
         const getArticles = async () => {
 
-            fetch(`https://newsapi.org/v2/everything?q=travel&apiKey=f74e7bc8eebb430980f2f83de2cd93e2`)
+            fetch(`https://newsapi.org/v2/everything?q=travel&apiKey=b961a950d9754aa8be3d2457a7a76422`)
                 .then((res) => res.json())
                 .then((result) => {
                     console.log(result.articles[2]);
