@@ -96,7 +96,7 @@ const Questions = () => {
 
 
                         <button
-                             className=" mt-5 bg-gradient bg-dark rounded-pill text-light ms-3 border-0 w-75 shadow"
+                             className=" mt-5  bg-dark rounded-pill text-light ms-3 border-0 w-75 shadow"
                             onClick={postClickHandler}> Ask
                         </button>
 

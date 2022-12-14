@@ -1,13 +1,22 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {followUserThunk} from "../questionnaire/followersfollowing/following-followers-thunk";
+import {
+    followUserThunk,
+    unfollowUserThunk
+} from "../questionnaire/followersfollowing/following-followers-thunk";
+import "./index.css";
 
 const UsersToFollow=(
     userItem
 )=>{
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
     const dispatch=useDispatch();
+    // let [toggle,setToggle]=useState(false);
+    let value=currentLoggedInUser.following.includes(userItem.userItem._id)
     const setFollowHandler=()=>{
+        // setToggle(toggle=!toggle)
+
+
         const followUserId=userItem.userItem._id
         console.log("followUserId is ",followUserId)
         const obj = {
@@ -15,6 +24,18 @@ const UsersToFollow=(
             anotherUserId : followUserId
         }
         dispatch(followUserThunk(obj))
+    }
+    const setRemoveFollowHandler=()=>{
+        // setToggle(toggle=!toggle)
+
+
+        const unfollowUserId=userItem.userItem._id
+        console.log("followUserId to be removed is ",unfollowUserId)
+        const obj = {
+            loggedInUserId: currentLoggedInUser._id,
+            anotherUserId : unfollowUserId
+        }
+        dispatch(unfollowUserThunk(obj))
     }
 
 
@@ -34,7 +55,12 @@ const UsersToFollow=(
                 </div>
                 <div className="col-3 ">
 
-                    <button className="w-50 wd-btn bg-dark text-light border-0 shadow rounded-pill  mt-3 " onClick={setFollowHandler}>Follow</button>
+                    {
+                        value? <button className="w-50 wd-btn wd-btn-color text-light border-0 shadow rounded-pill  mt-3 " onClick={setRemoveFollowHandler}>Unfollow</button>:
+                        <button className="w-50 wd-btn bg-dark text-light border-0 shadow rounded-pill  mt-3 " onClick={setFollowHandler}>Follow</button>
+                    }
+
+
 
                 </div>
 
