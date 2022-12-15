@@ -16,6 +16,7 @@ import Navigation from "./navigation";
 import AdminComponent from "./admin/admin-component";
 import SearchComponent from "./search/search-component";
 import ModalComponent from "./modal/modalComponent";
+import AnswersComponent from "./answers-page";
 
 function Questionnaire() {
     return (
@@ -33,6 +34,7 @@ function Questionnaire() {
                         <Route path="/profile/*" element={<ProfileComponent/>}/>
                         <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/questions" element={<Questions/>}/>
+                        <Route path="/answers" element={<AnswersComponent/>}/>
                         {/*<Route path="/login" element={<LoginComponent/>}/>*/}
                         {/*<Route path="/register" element={<RegistrationComponent/>}/>*/}
                         <Route path="/admin" element={<AdminComponent/>}/>
