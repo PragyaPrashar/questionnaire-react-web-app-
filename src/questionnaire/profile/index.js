@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import "./index.css"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {findUsersThunk} from "../../services/profile-thunks";
 import {useLocation} from "react-router";
@@ -8,7 +8,7 @@ import {useLocation} from "react-router";
 const Profile = (
     { user }
 ) => {
-
+const navigate=useNavigate()
     const currentLoggedInUser = useSelector(s => s.users.currentUser)
 
     // const location = useLocation();
@@ -21,7 +21,12 @@ const Profile = (
     //     }
     // }
 
+    const setQuestion=(path)=>{
 
+        const obj={state:{data:user}}
+        navigate(path,obj)
+
+    }
 
     useEffect(() => {
         // dispatch(findTuitsThunk());
@@ -59,24 +64,54 @@ const Profile = (
 
             <div className="row  pb-1 mt-5 border-bottom">
                 <div className="col-3">
-                    <Link className="text-decoration-none text-secondary p-2  bg-gradient"
-                          to={"/quans/profile/"}><span
-                        className="wd-onHover">Questions</span></Link>
+                    {/*<Link className="text-decoration-none text-secondary p-2  bg-gradient"*/}
+                    {/*      to={"/quans/profile/"}><span*/}
+                    {/*    className="wd-onHover" >Questions</span></Link>*/}
+
+                   <span className="wd-onHover text-decoration-none text-secondary p-2  bg-gradient" onClick={()=>setQuestion("/quans/profile/")}>Questions</span>
+
+
+
+                </div>
+
+
+
+
+
+                <div className="col-3">
+                    {/*<Link className="text-decoration-none text-secondary p-2"*/}
+                    {/*      to={"/quans/profile/"}><span*/}
+                    {/*    className="wd-onHover">Answers</span></Link>*/}
+
+
+                    <span className="wd-onHover text-decoration-none text-secondary p-2"  onClick={()=>setQuestion("/quans/profile/")}>Answers</span>
+
+
+
+
                 </div>
                 <div className="col-3">
-                    <Link className="text-decoration-none text-secondary p-2"
-                          to={"/quans/profile/"}><span
-                        className="wd-onHover">Answers</span></Link>
+
+
+
+                    {/*<Link className="text-decoration-none text-secondary p-2"*/}
+                    {/*      to="/quans/profile/followers"><span*/}
+                    {/*    className="wd-onHover">Followers</span></Link>*/}
+
+
+                    <span className="wd-onHover text-decoration-none text-secondary p-2" onClick={()=>setQuestion("/quans/profile/followers")}>Followers</span>
+
+
                 </div>
                 <div className="col-3">
-                    <Link className="text-decoration-none text-secondary p-2"
-                          to="/quans/profile/followers"><span
-                        className="wd-onHover">Followers</span></Link>
-                </div>
-                <div className="col-3">
-                    <Link className="text-decoration-none text-secondary p-2"
-                          to="/quans/profile/following"><span
-                        className="wd-onHover">Following</span></Link>
+                    {/*<Link className="text-decoration-none text-secondary p-2"*/}
+                    {/*      to="/quans/profile/following"><span*/}
+                    {/*    className="wd-onHover">Following</span></Link>*/}
+
+
+                   <span
+                        className="wd-onHover text-decoration-none text-secondary p-2" onClick={()=>setQuestion("/quans/profile/following")}>Following</span>
+
                 </div>
             </div>
 

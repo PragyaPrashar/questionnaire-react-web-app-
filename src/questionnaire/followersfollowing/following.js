@@ -6,9 +6,10 @@ import {getUserFromId} from "../login/login-service";
 import {findUsersThunk} from "../../services/profile-thunks";
 
 const Following = (
+    {user}
 ) => {
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
-    let arr = currentLoggedInUser.following;
+    let arr = user.following;
     let {users, loading} = useSelector(state => state.profileusers)
     let filteredUsers = users.filter(u=>arr.includes(u._id))
     console.log("array is" ,arr)

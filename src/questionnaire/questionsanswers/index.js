@@ -6,7 +6,6 @@ import {Link, useNavigate} from "react-router-dom";
 import {getUserByIdThunk} from "../highlight/edit-profile-thunk";
 import {getUserByIdService} from "../highlight/edit-profile-service";
 import {getUserFromId} from "../login/login-service";
-import VisitedProfile from "../../visitedprofile/visited-profile.js";
 
 const QuestionsAnswers = (
     {

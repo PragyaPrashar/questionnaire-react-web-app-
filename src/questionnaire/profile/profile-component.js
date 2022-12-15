@@ -25,10 +25,13 @@ function ProfileComponent() {
         console.log("location state is ",location.state)
         if(data!==null && data._id!==currentLoggedInUser._id) {
             user = data
+        }else {
+            user = currentLoggedInUser;
         }
     }else{
         user = currentLoggedInUser;
     }
+    console.log("current user inside profile component is ",user)
 
     // useEffect(() => {
     //     // dispatch(findTuitsThunk());
@@ -52,8 +55,8 @@ function ProfileComponent() {
 
                         <Route index element={<ProfileQuestions user={user}/>}/>
 
-                        <Route path="/followers" element={<Followers/>}/>
-                        <Route path="/following" element={<Following/>}/>
+                        <Route path="/followers" element={<Followers user={user}/>}/>
+                        <Route path="/following" element={<Following user={user}/>}/>
                     </Routes>
                 </div>
                 <div className={"col-4"}>
