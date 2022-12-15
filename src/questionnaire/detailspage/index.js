@@ -29,7 +29,10 @@ const DetailsComponent=()=>{
     console.log("filtered ans is ",answerO)
     let answer = answerO.answers;
     console.log("filtered ans is ",answer)
-
+    const currentUsrId = answerO.user_id;
+    //
+    // let answerUser = userO.filter(a=>a.username===answerO.user_id);
+    // console.log("filtered ans is ",answer)
 
     return(
         <>
@@ -56,15 +59,20 @@ const DetailsComponent=()=>{
 
                     </div>
 
-                    <div className=" mt-4 pt-3 pb-3  rounded border-bottom border-top ps-3 shadow-sm  bg-dark">
-                        <h2 className="font-weight-bold ps-2 me-2 text-white">{questionO.question}</h2>
+                    <div className=" mt-4 pt-3 pb-3 ps-3  rounded border-bottom border-top ps-3 shadow-sm  bg-dark">
+                        <h2 className="font-weight-bold ps-2 me-2 text-white"><i
+                            className="pe-3 bi bi-question-octagon-fill"></i>  {questionO.question}</h2>
                     </div>
                     <div className="  pt-5 pb-3 pe-3 rounded border-bottom border-top border-left w-100 h-75 ps-2 me-2 shadow-sm ">
                         <span className=" font-weight-bold">{answer}</span>
                         <div>
-                            <span className="ps-4 font-weight-bold ">{answerO.username}</span>
-                            <span className=" ps-4 font-weight-bold">{answerO.user_id}</span>
+                            {/*<span className="ps-4 font-weight-bold ">{answerUser.username}</span>*/}
+
                         </div>
+                    </div>
+                    <div className="  pt-3 pb-3 pb-5 pe-4 rounded border-bottom border-top ps-3 shadow-sm  bg-dark">
+                        <div className=" ps-4 font-weight-bold text-white float-end ">{answerO.user_id}
+                            <i className="ps-3 bi bi-chat-square-quote-fill text-white"></i></div>
                     </div>
                     </div>
 

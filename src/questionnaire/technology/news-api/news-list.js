@@ -5,15 +5,16 @@ import NewsItemTech from "./news-item";
 
 const NewsListTech = () => {
     const [articles, setArticles] = useState([])
+    const num = Math.floor(Math.random() * 100) + 1;
 
     useEffect(()=>{
         const getArticles = async () => {
 
-            fetch(`https://newsapi.org/v2/everything?q=technology&apiKey=b961a950d9754aa8be3d2457a7a76422`)
+            fetch(`https://newsapi.org/v2/everything?q=technology&apiKey=90821318c32a40699e0c02c709583c53`)
                 .then((res) => res.json())
                 .then((result) => {
-                    console.log(result.articles[1]);
-                    setArticles(result.articles[1]);
+                    console.log(result.articles[num]);
+                    setArticles(result.articles[num]);
                 });
         }
         getArticles().then(r => console.log(r))

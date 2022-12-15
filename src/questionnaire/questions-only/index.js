@@ -27,8 +27,8 @@ const QuestionsOnly = ({postItem}) => {
         }
     }
 
-    const currentLoggedInUser = useSelector(s=>s.users.currentUser)
-    console.log("currentLoggedInUser:",currentLoggedInUser._id)
+    // const currentLoggedInUser = useSelector(s=>s.users.currentUser)
+    // console.log("currentLoggedInUser:",currentLoggedInUser._id)
 
     const postAnswer = ()=>{
         let today = new Date();
@@ -38,7 +38,8 @@ const QuestionsOnly = ({postItem}) => {
         const ansObj = {
             _id: new Date().getTime(),
             question_id: postItem._id,
-            user_id: currentLoggedInUser._id,
+            //user_id: currentLoggedInUser._id,
+            user_id: userObj._id,
             answers: answerText,
             time: formattedDate,
             comments: []
