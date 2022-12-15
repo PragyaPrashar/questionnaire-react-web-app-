@@ -30,6 +30,7 @@ const QuestionsAnswers = (
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const deletePostHandler = (_id) => {
         console.log("Inside delete handler with id ", postItem._id);
         dispatch(deletePostsThunk(_id));
@@ -72,10 +73,19 @@ const QuestionsAnswers = (
 
     }
 
+    const setDetails=(path)=>{
 
+        const detailsObj = {
+            questionObj:postItem,
+            answerObj:answerObj[0],
+            userObject: userObj
 
+        }
 
+        const obj={state:{data:detailsObj}}
+        navigate(path,obj)
 
+    }
 
 
     return (
@@ -112,7 +122,9 @@ const QuestionsAnswers = (
                     }
 
                     {/*Aish has to give me the link for details page.*/}
-                    <span ><Link to="/quans/001/details">see more</Link></span>
+                    {/* <span ><Link to="/quans/details">see more</Link></span> */}
+
+                    <span className="wd-onHover text-decoration-none text-secondary p-2"  onClick={()=>setDetails("/quans/details")}>See Details</span>
 
 
                 </div>
