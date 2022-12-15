@@ -13,6 +13,7 @@ import searchReducer from "./questionnaire/search/search-reducer.js";
 import editProfileReducer from "./questionnaire/highlight/edit-profile-reducer";
 import profileReducer from "./questionnaire/profile/profile-reducer.js";
 import ModalComponent from "./questionnaire/modal/modalComponent";
+import hideQuestionReducer from "./questionnaire/questionsanswers/hide-question-reducer";
 
 const store = configureStore({
                                  reducer: {
@@ -20,7 +21,8 @@ const store = configureStore({
                                      users: userReducer,
                                      search : searchReducer,
                                      editProfile:editProfileReducer,
-                                     profileusers:profileReducer
+                                     profileusers:profileReducer,
+                                     hideQuestion : hideQuestionReducer
                                  }
                              });
 
