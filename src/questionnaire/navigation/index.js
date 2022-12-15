@@ -1,18 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./index.css"
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {setSearchField} from "../search/search-reducer";
 import {loginThunk} from "../login/login-thunks";
+import {useLocation} from "react-router";
 const Navigation=()=>{
 
     let currentLoggedInUser = useSelector(s=>s.users.currentUser)
     // const [currentUser,setCurrentUser]= useState(null)
     let [searchText,setSearchText] = useState("");
 
+    let [disable,setDisable] = useState(false);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const location = useLocation();
+    useEffect(()=>{
+        if(location.pathname.includes("admin")){
+            setDisable(true)
+        }
+    },[])
+
     const logoutHandler=()=>{
         console.log("inside navigation with user \n",currentLoggedInUser)
         currentLoggedInUser = null;
@@ -39,12 +49,20 @@ const Navigation=()=>{
             <div className="col-1 ">
                 <Link to="/quans/"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
             </div>
-            <div className="col-1 ">
-              <Link to="/quans/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
-            </div>
-            <div className="col-1 ">
-                <Link to="/quans/answers">   <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i></Link>
-            </div>
+            {
+                !disable &&
+                <div className="col-1 ">
+                    <Link to="/quans/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
+                </div>
+            }
+
+            {
+                !disable &&
+                <div className="col-1 ">
+                    <Link to="/quans/answers">   <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i></Link>
+                </div>
+            }
+
             <div className="col-1 ">
                 <Link to="/quans/users"><i className="bi bi-people-fill fs-4 text-light wd-pos"></i></Link>
                 {/*<i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>*/}

@@ -7,9 +7,7 @@ import { useNavigate } from "react-router-dom";
 const LoginComponent = ()=>{
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
-
-    const currentLoggedInUser = useSelector(s=>s.users.currentUser)
-
+    useSelector(s=>s.users.currentUser);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const loginHandler = ()=>{
@@ -20,15 +18,12 @@ const LoginComponent = ()=>{
         console.log("sending login object \t",loginDetails);
 
          dispatch(loginThunk(loginDetails)).then(()=>{
-             navigate("/quans");
+             if(email.toLowerCase().includes("admin")){
+                 navigate("/quans/admin");
+             }else{
+                 navigate("/quans");
+             }
          });
-
-        if(currentLoggedInUser!==null && currentLoggedInUser!==undefined){
-            console.log("logged in user is ",currentLoggedInUser)
-        }else {
-            console.log("logged in user not found");
-
-        }
     }
 
 
@@ -62,9 +57,9 @@ const LoginComponent = ()=>{
                             <h6 className={"d-flex justify-content-center ms-sm-4"}>Don't have an account yet? Register here</h6>
                         </Link>
 
-                        <Link to={"/admin"} className={"text-decoration-none text-dark"}>
-                            <h6 className={"d-flex justify-content-center ms-sm-4"}>Are you an admin? Sign in here</h6>
-                        </Link>
+                        {/*<Link to={"/admin"} className={"text-decoration-none text-dark"}>*/}
+                        {/*    <h6 className={"d-flex justify-content-center ms-sm-4"}>Are you an admin? Sign in here</h6>*/}
+                        {/*</Link>*/}
                     </div>
 
                 </div>
