@@ -62,7 +62,7 @@ const AdminComponent = ()=>{
 
                    <img alt="" className="wd-img-size" src="../../../images/registered.png"/>
                    {
-                       users && <h3>Registered Users { users.length -1 }</h3>
+                       users && <h3>Registered Users { users.length }</h3>
                    }
 
                </div>
