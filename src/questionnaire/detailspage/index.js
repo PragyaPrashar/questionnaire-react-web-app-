@@ -1,14 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import CategoriesSidebar from "../categories-sidebar";
 import NewsComponent from "../newsAPI";
 import {useLocation} from "react-router";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {findUsersThunk} from "../../services/profile-thunks";
 
 const DetailsComponent=()=>{
 
     const location = useLocation();
     const {answers} = useSelector(state => state.answersData)
-    const {user} = useSelector(state => state.users)
+    const {users} = useSelector(state => state.profileusers)
+    const dispatch  = useDispatch();
+    useEffect(()=>{
+        dispatch(findUsersThunk())
+    },[])
     let detailsObj = null;
     let  questionO = null;
     let answerO = null;
@@ -31,8 +36,8 @@ const DetailsComponent=()=>{
     console.log("filtered ans is ",answer)
     const currentUsrId = answerO.user_id;
     //
-    // let answerUser = userO.filter(a=>a.username===answerO.user_id);
-    // console.log("filtered ans is ",answer)
+    let answerUser = users.filter(u=>u._id===answerO.user_id);
+    console.log(" ans user is ",answerUser)
 
     return(
         <>
@@ -71,8 +76,13 @@ const DetailsComponent=()=>{
                         </div>
                     </div>
                     <div className="  pt-3 pb-3 pb-5 pe-4 rounded border-bottom border-top ps-3 shadow-sm  bg-dark">
-                        <div className=" ps-4 font-weight-bold text-white float-end ">{answerO.user_id}
-                            <i className="ps-3 bi bi-chat-square-quote-fill text-white"></i></div>
+                        {
+                            answerUser[0] &&
+                            <div className=" ps-4 font-weight-bold text-white float-end ">{answerUser[0].username}
+                                <i className="ps-3 bi bi-chat-square-quote-fill text-white"></i>
+                            </div>
+                        }
+
                     </div>
                     </div>
 

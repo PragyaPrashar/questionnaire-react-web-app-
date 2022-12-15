@@ -27,7 +27,8 @@ const QuestionsAnswers = (
     let a = null;
     // const[visitedProfile,setVisitedProfile]=useState(false);
     const {answers} = useSelector(state => state.answersData)
-
+    const currentLoggedInUser = useSelector(s=>s.users.currentUser)
+    console.log("currentLoggedInUser:",currentLoggedInUser)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
