@@ -27,6 +27,9 @@ const userSlice = createSlice(
         extraReducers: {
             [loginThunk.fulfilled]: (state, {payload}) => {
                 console.log("inside login reducer");
+                if(payload==="" || payload ==null){
+                    return
+                }
                 state.currentUser = {
                     _id: payload._id,
                     username: payload.username,

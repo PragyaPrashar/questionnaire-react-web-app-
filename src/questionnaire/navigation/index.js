@@ -62,11 +62,14 @@ const Navigation=()=>{
                     <Link to="/quans/answers">   <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i></Link>
                 </div>
             }
+            {
+                !disable &&
+                <div className="col-1 wd-house">
+                    <Link to="/quans/users"><i className="bi bi-people-fill fs-4 text-light wd-pos"></i></Link>
+                </div>
+            }
 
-            <div className="col-1 wd-house">
-                <Link to="/quans/users"><i className="bi bi-people-fill fs-4 text-light wd-pos"></i></Link>
-                {/*<i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>*/}
-            </div>
+
             <div className="col-4 wd-search-col">
                 <div className="wd-input-container  mt-1">
                  <input className="ps-3 rounded-pill pb-0 border-1 wd-search-border wd-pos shadow-lg" type="search"

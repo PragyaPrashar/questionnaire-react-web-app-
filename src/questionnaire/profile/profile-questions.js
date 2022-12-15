@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch,useSelector} from "react-redux";
 import {findPostsThunk} from "../../services/post-thunks";
 import Questions from "./questions";
@@ -10,6 +10,7 @@ const ProfileQuestions =(
 )=>{
     let {posts, loading} = useSelector(state => state.postsData)
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
+    const  [disable,setDisable] = useState(false)
     // posts = posts.filter(post => post.user_id=== currentLoggedInUser._id)
 
 
@@ -25,6 +26,9 @@ const ProfileQuestions =(
     let filteredPosts = posts.filter(post => post.user_id=== user._id)
     const dispatch = useDispatch();
     useEffect(() => {
+        if(currentLoggedInUser.username.includes("admin")){
+            setDisable(true)
+        }
         dispatch(findPostsThunk());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
@@ -32,26 +36,30 @@ const ProfileQuestions =(
 
     return(
         <>
+            {
+                !disable &&
+                <div className="row mt-2">
+                    {
+                        <ul className="list-group">
+                            {
 
-            <div className="row mt-2">
-                {
-                    <ul className="list-group">
-                        {
+                                loading &&
+                                <li className="list-group-item">
+                                    Loading...
+                                </li>
 
-                            loading &&
-                            <li className="list-group-item">
-                                Loading...
-                            </li>
+                            }
 
-                        }
+                            {
+                                filteredPosts.map(item=> <Questions key={item._id} postItem={item}/>)
+                            }
 
-                        {
-                            filteredPosts.map(item=> <Questions key={item._id} postItem={item}/>)
-                        }
+                        </ul>
+                    }
+                </div>
+            }
 
-                    </ul>
-                }
-            </div>
+
 
         </>
     );

@@ -6,7 +6,7 @@ import {findPostsThunk} from "../../services/post-thunks";
 
 const Posts =()=>{
     const {posts, loading} = useSelector(state => state.postsData)
-
+    let filteredPosts = posts.filter(p=>p.answers!==undefined && p.answers.length>0)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(findPostsThunk());
@@ -30,7 +30,7 @@ const Posts =()=>{
                         }
 
                         {
-                          posts.map((item,index)=> <QuestionsAnswers key={item._id} postItem={item} index={index}/>)
+                            filteredPosts.map((item,index)=> <QuestionsAnswers key={item._id} postItem={item} index={index}/>)
                         }
 
                     </ul>
