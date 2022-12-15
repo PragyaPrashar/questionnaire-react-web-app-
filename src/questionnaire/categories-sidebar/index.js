@@ -11,7 +11,7 @@ const CategoriesSidebar = () => {
     return (
         <div className="list-group">
             <Link to="/quans" className={`list-group-item
-                    ${active === 'home'?'active':''} bg-dark`}>
+                    ${active === 'home'?'active':''} bg-dark`}> 
                 <i className="bi bi-quora text-white "></i>
                 <span className="d-none d-xxl-inline-block d-xl-inline-block d-lg-none "></span>
             </Link>

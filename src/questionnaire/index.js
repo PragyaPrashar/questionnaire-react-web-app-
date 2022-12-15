@@ -46,7 +46,7 @@ function Questionnaire() {
                         <Route path="/food" element={<FoodComponent/>}/>
                         <Route path="/music" element={<MusicComponent/>}/>
                         <Route path="/sports" element={<SportsComponent/>}/>
-                        <Route path="/001/details" element={<DetailsComponent/>}/>
+                        <Route path="/details" element={<DetailsComponent/>}/>
                     </Routes>
                 </div>
         </>

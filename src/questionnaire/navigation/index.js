@@ -46,32 +46,32 @@ const Navigation=()=>{
             <div className="col-1">
                 <Link to="/quans/"><img alt="" src="../../../images/questionnaire_logo.png" className="wd-logo "/></Link>
             </div>
-            <div className="col-1 ">
+            <div className="col-1 wd-house">
                 <Link to="/quans/"><i className="bi bi-house-door fs-4 text-light wd-pos "></i></Link>
             </div>
             {
                 !disable &&
-                <div className="col-1 ">
+                <div className="col-1 wd-house">
                     <Link to="/quans/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
                 </div>
             }
 
             {
                 !disable &&
-                <div className="col-1 ">
+                <div className="col-1 wd-house">
                     <Link to="/quans/answers">   <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i></Link>
                 </div>
             }
 
-            <div className="col-1 ">
+            <div className="col-1 wd-house">
                 <Link to="/quans/users"><i className="bi bi-people-fill fs-4 text-light wd-pos"></i></Link>
                 {/*<i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>*/}
             </div>
-            <div className="col-4">
-                <div className="position-absolute mt-1">
-                 <input className="ps-5 w-100 rounded-pill pb-0 border-1 wd-search-border wd-pos shadow-lg" type="search"
+            <div className="col-4 wd-search-col">
+                <div className="wd-input-container  mt-1">
+                 <input className="ps-3 rounded-pill pb-0 border-1 wd-search-border wd-pos shadow-lg" type="search"
                         placeholder="search"  onChange={(event)=>searchHandler(event)} value={searchText}/>
-                    <i className="bi bi-search wd-search text-secondary"></i>
+                    {/*<i className="bi bi-search wd-search text-secondary"></i>*/}
                 </div>
             </div>
             {
@@ -92,7 +92,7 @@ const Navigation=()=>{
             {
                 !currentLoggedInUser &&
 
-                    <div className="col-1">
+                    <div className="col-sm-2 col-md-2 col-1 ms-md-5 ms-xl-0">
                         <Link to={"/"} className={"text-decoration-none"}>
                         <h6 className="text-light wd-logout">Sign In</h6>
                         </Link>
