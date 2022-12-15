@@ -105,10 +105,10 @@ const QuestionsAnswers = (
                            onClick={() => deletePostHandler(postItem._id)}></i>
                     </div>
 
-                    <h5 className="wd-text">{postItem.question}</h5>
+                    <h5 className="wd-text pb-1">{postItem.question}</h5>
                     {
                         answerObj[0] &&
-                        <span className="wd-text">{answerObj[0].answers}</span>
+                        <span className="wd-text ">{answerObj[0].answers}</span>
                     }
 
                     {/*Aish has to give me the link for details page.*/}

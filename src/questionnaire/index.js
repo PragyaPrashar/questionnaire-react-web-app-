@@ -17,6 +17,7 @@ import AdminComponent from "./admin/admin-component";
 import SearchComponent from "./search/search-component";
 import ModalComponent from "./modal/modalComponent";
 import AnswersComponent from "./answers-page";
+import Users from "../users/usercomponent";
 
 function Questionnaire() {
     return (
