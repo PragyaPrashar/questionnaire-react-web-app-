@@ -12,7 +12,13 @@ const UsersToFollow=(
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
     const dispatch=useDispatch();
     // let [toggle,setToggle]=useState(false);
-    let value=currentLoggedInUser.following.includes(userItem.userItem._id)
+    let value;
+    if(currentLoggedInUser!==null){
+        value=currentLoggedInUser.following.includes(userItem.userItem._id)
+
+    }else{
+        value = false
+    }
     const setFollowHandler=()=>{
         // setToggle(toggle=!toggle)
 

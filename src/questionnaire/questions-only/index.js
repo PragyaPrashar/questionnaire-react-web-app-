@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {deletePostsThunk, findPostsThunk} from "../../services/post-thunks";
 import {getUserFromId} from "../login/login-service";
 import {createAnswersThunk} from "../../services/answers-thunks";
+import ModalComponent from "../modal/modalComponent";
 
 
 
@@ -11,6 +12,7 @@ const QuestionsOnly = ({postItem}) => {
 
     const [userObj, setUserObj] = useState(null);
     const [answerText, setAnswerText] = useState("");
+    const [showModal, setShowModal] = useState(true);
     console.log("this is inside question only ",answerText)
     const dispatch = useDispatch();
     // const deletePostHandler = (_id) => {
@@ -31,20 +33,24 @@ const QuestionsOnly = ({postItem}) => {
     console.log("currentLoggedInUser:",currentLoggedInUser)
 
     const postAnswer = ()=>{
-        let today = new Date();
-        let options = {year: "numeric",month:"long",day:"numeric"}
-        let formattedDate = today.toLocaleDateString(undefined,options)
+        if(currentLoggedInUser==null){
+            setShowModal(true)
+        }else{
+            let today = new Date();
+            let options = {year: "numeric",month:"long",day:"numeric"}
+            let formattedDate = today.toLocaleDateString(undefined,options)
 
-        const ansObj = {
-            _id: new Date().getTime(),
-            question_id: postItem._id,
-            //user_id: currentLoggedInUser._id,
-            user_id: currentLoggedInUser._id,
-            answers: answerText,
-            time: formattedDate,
-            comments: []
+            const ansObj = {
+                _id: new Date().getTime(),
+                question_id: postItem._id,
+                //user_id: currentLoggedInUser._id,
+                user_id: currentLoggedInUser._id,
+                answers: answerText,
+                time: formattedDate,
+                comments: []
+            }
+            dispatch(createAnswersThunk(ansObj))
         }
-        dispatch(createAnswersThunk(ansObj))
     }
 
     let a = null;
@@ -71,6 +77,10 @@ const QuestionsOnly = ({postItem}) => {
 
     return (
         <>
+            {
+                showModal &&
+                <ModalComponent initialValue={showModal}/>
+            }
             {
                 userObj &&
                 <div className="row mt-2 border-bottom pb-1 shadow-sm">

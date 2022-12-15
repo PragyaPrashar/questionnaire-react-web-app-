@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "./index.css"
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -10,8 +10,7 @@ const Profile = (
 ) => {
 const navigate=useNavigate()
     const currentLoggedInUser = useSelector(s => s.users.currentUser)
-
-    // const location = useLocation();
+    const [disable,setDisable] = useState(false);
     //
     // if(location!==undefined&&location.state!==null){
     //     const {data} = location.state;
@@ -29,6 +28,9 @@ const navigate=useNavigate()
     }
 
     useEffect(() => {
+        if(currentLoggedInUser.username.includes("admin")){
+            setDisable(true)
+        }
         // dispatch(findTuitsThunk());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentLoggedInUser]);
@@ -61,59 +63,58 @@ const navigate=useNavigate()
 
 
             </div>
+            {
+                !disable &&
+                <div className="row  pb-1 mt-5 border-bottom">
+                    <div className="col-3">
+                        {/*<Link className="text-decoration-none text-secondary p-2  bg-gradient"*/}
+                        {/*      to={"/quans/profile/"}><span*/}
+                        {/*    className="wd-onHover" >Questions</span></Link>*/}
 
-            <div className="row  pb-1 mt-5 border-bottom">
-                <div className="col-3">
-                    {/*<Link className="text-decoration-none text-secondary p-2  bg-gradient"*/}
-                    {/*      to={"/quans/profile/"}><span*/}
-                    {/*    className="wd-onHover" >Questions</span></Link>*/}
-
-                   <span className="wd-onHover text-decoration-none text-secondary p-2  bg-gradient" onClick={()=>setQuestion("/quans/profile/")}>Questions</span>
+                        <span className="wd-onHover text-decoration-none text-secondary p-2  bg-gradient" onClick={()=>setQuestion("/quans/profile/")}>Questions</span>
 
 
 
+                    </div>
+                    <div className="col-3">
+                        {/*<Link className="text-decoration-none text-secondary p-2"*/}
+                        {/*      to={"/quans/profile/"}><span*/}
+                        {/*    className="wd-onHover">Answers</span></Link>*/}
+
+
+                        <span className="wd-onHover text-decoration-none text-secondary p-2"  onClick={()=>setQuestion("/quans/profile/")}>Answers</span>
+
+
+
+
+                    </div>
+                    <div className="col-3">
+
+
+
+                        {/*<Link className="text-decoration-none text-secondary p-2"*/}
+                        {/*      to="/quans/profile/followers"><span*/}
+                        {/*    className="wd-onHover">Followers</span></Link>*/}
+
+
+                        <span className="wd-onHover text-decoration-none text-secondary p-2" onClick={()=>setQuestion("/quans/profile/followers")}>Followers</span>
+
+
+                    </div>
+                    <div className="col-3">
+                        {/*<Link className="text-decoration-none text-secondary p-2"*/}
+                        {/*      to="/quans/profile/following"><span*/}
+                        {/*    className="wd-onHover">Following</span></Link>*/}
+
+
+                        <span
+                            className="wd-onHover text-decoration-none text-secondary p-2" onClick={()=>setQuestion("/quans/profile/following")}>Following</span>
+
+                    </div>
                 </div>
+            }
 
 
-
-
-
-                <div className="col-3">
-                    {/*<Link className="text-decoration-none text-secondary p-2"*/}
-                    {/*      to={"/quans/profile/"}><span*/}
-                    {/*    className="wd-onHover">Answers</span></Link>*/}
-
-
-                    <span className="wd-onHover text-decoration-none text-secondary p-2"  onClick={()=>setQuestion("/quans/profile/")}>Answers</span>
-
-
-
-
-                </div>
-                <div className="col-3">
-
-
-
-                    {/*<Link className="text-decoration-none text-secondary p-2"*/}
-                    {/*      to="/quans/profile/followers"><span*/}
-                    {/*    className="wd-onHover">Followers</span></Link>*/}
-
-
-                    <span className="wd-onHover text-decoration-none text-secondary p-2" onClick={()=>setQuestion("/quans/profile/followers")}>Followers</span>
-
-
-                </div>
-                <div className="col-3">
-                    {/*<Link className="text-decoration-none text-secondary p-2"*/}
-                    {/*      to="/quans/profile/following"><span*/}
-                    {/*    className="wd-onHover">Following</span></Link>*/}
-
-
-                   <span
-                        className="wd-onHover text-decoration-none text-secondary p-2" onClick={()=>setQuestion("/quans/profile/following")}>Following</span>
-
-                </div>
-            </div>
 
 
 
