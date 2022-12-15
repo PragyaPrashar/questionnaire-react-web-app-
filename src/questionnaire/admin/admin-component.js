@@ -85,12 +85,12 @@ const AdminComponent = ()=>{
                 </div>
             </div>
 
-            <div className="row mt-5 wd-text-move border shadow-sm wd-header-background bg-gradient">
-                <div>
-                    <h2 className="text-dark"> Questions asked till now are as follows</h2>
+            {/*<div className="row mt-5 wd-text-move border shadow-sm wd-header-background bg-gradient">*/}
+            {/*    <div>*/}
+            {/*        <h2 className="text-dark"> Questions asked till now are as follows</h2>*/}
 
-                </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
             <div className="row ms-4">
                     {/*<Posts/>*/}
             </div>

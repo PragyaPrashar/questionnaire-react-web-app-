@@ -12,7 +12,7 @@ const QuestionsOnly = ({postItem}) => {
 
     const [userObj, setUserObj] = useState(null);
     const [answerText, setAnswerText] = useState("");
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
     console.log("this is inside question only ",answerText)
     const dispatch = useDispatch();
     // const deletePostHandler = (_id) => {
