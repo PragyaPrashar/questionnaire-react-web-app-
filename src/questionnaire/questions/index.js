@@ -6,8 +6,8 @@ import 'reactjs-popup/dist/index.css';
 import NewsComponent from "../newsAPI";
 import WeatherComponent from "../weatherAPI";
 import {useNavigate} from "react-router-dom";
-import ModalComponent from "../modal/modalComponent";
 import QuestionPostedModal from "./question-posted-modal";
+import ModalComponent from "../modal/modalComponent.js";
 const Questions = () => {
 
     let [questionasked, setWhatsHappening] = useState('');

@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {deletePostsThunk} from "../../services/post-thunks";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {getUserByIdThunk} from "../highlight/edit-profile-thunk";
 import {getUserByIdService} from "../highlight/edit-profile-service";
 import {getUserFromId} from "../login/login-service";
-import {useLocation} from "react-router";
-import {getHideObj, toggleShow} from "./hide-question-reducer";
 
 const QuestionsAnswers = (
     {
@@ -19,55 +17,68 @@ const QuestionsAnswers = (
             time: 1,
             genre: ["health", "education"],
             answers: [1, 2, 3]
-        },
-        index
+        }
     }
 ) => {
 
-    const [userName, setUserName] = useState("");
-    // const [hideObj,setShow] = useState(true)
-    // let hideObj = useSelector(state => state.hideQuestion);
-    let {questions} = useSelector(state => state.hideQuestion);
-    const obj = {
-        show : true,
-        questionId: postItem._id
-    }
+    // const [userName, setUserName] = useState("");
+    const [userObj,setUserObj] = useState(null);
+    let a = null;
+    // const[visitedProfile,setVisitedProfile]=useState(false);
 
-
-    console.log("post question is ",postItem)
     const dispatch = useDispatch();
-    useEffect(()=>{
-        dispatch(toggleShow(obj))
-        console.log("questions are ",questions)
-
-    },[])
-    const location = useLocation();
+    const navigate = useNavigate();
     const deletePostHandler = (_id) => {
-        console.log("calling delete handler")
-        if(location.pathname === "/quans/profile"){
-            console.log("Inside delete handler with id ", postItem._id);
-            dispatch(deletePostsThunk(_id));
-        }else{
-            const obj = {
-                show : false,
-                questionId: postItem._id
-            }
-            dispatch(toggleShow(obj))
-            questions = dispatch(getHideObj())
-            console.log("questions after update",questions)
-        }
+        console.log("Inside delete handler with id ", postItem._id);
+        dispatch(deletePostsThunk(_id));
+
     }
 
-    const promiseUserObj = getUserFromId(postItem.user_id).then((s)=>s);
-    promiseUserObj.then(result => {
-        console.log("result is ",result)
-        setUserName(result.username);
-    });
+    // const promiseUserObj = getUserFromId(postItem.user_id).then((s)=>s);
+    // promiseUserObj.then(result => {
+    //     console.log("result is ",result.username)
+    //     setUserName(result.username);
+    // });
+    useEffect(() => {
+
+        const promiseUserObj = getUserFromId(postItem.user_id);
+        promiseUserObj.then(result =>{
+
+                                console.log("visited promise is ",result)
+
+                                setUserObj(result)
+                                a= result;
+                            }
+        );
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    },[a]);
+    console.log("user obj inside question page ",userObj)
+    const profile=()=>{
+        // setVisitedProfile(true)
+        console.log("user obj onclick  ",userObj)
+
+        const obj = { state: {
+                data: userObj
+            } }
+
+
+
+
+        navigate("/quans/profile",obj)
+
+    }
+
+
+
+
+
+
 
     return (
         <>
+
             {
-                questions.length!==0 && questions[index].questionId === postItem._id && questions[index].show &&
+                userObj &&
                 <div className="row mt-2 border-bottom pb-1 shadow-sm">
                     <div className="col-1 mt-2">
                         <img alt="" src="../../../images/profile-pic.jpg"
@@ -75,8 +86,14 @@ const QuestionsAnswers = (
                     </div>
                     <div className="col-10 mt-2">
 
-                        <h6>{userName}</h6>
-                        <h6 className="text-secondary fw-light">{postItem.time}</h6>
+                        {/*<Link to="/quans/visitedProfile" className="text-decoration-none text-dark" ><h6>{userName}</h6></Link>*/}
+
+                        {/*{*/}
+                        {/*    visitedProfile && <VisitedProfile></VisitedProfile>*/}
+                        {/*}*/}
+
+                        <h6 onClick={profile}>{userObj.username}</h6>
+                        <h6 className="text-secondary fw-light ">{postItem.time}</h6>
 
                     </div>
                     <div className="col-1 mt-2 ">
@@ -92,7 +109,6 @@ const QuestionsAnswers = (
 
                 </div>
             }
-
         </>
 
 

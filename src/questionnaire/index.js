@@ -30,7 +30,6 @@ function Questionnaire() {
                         <Route path="/search" element={<SearchComponent/>}/>
                         <Route path="/discover" element={<HomeComponent/>}/>
                         <Route path={"/modal"} element={<ModalComponent/>}/>
-
                         <Route path="/profile/*" element={<ProfileComponent/>}/>
                         <Route path="/edit-profile" element={<EditProfile/>}/>
                         <Route path="/questions" element={<Questions/>}/>
