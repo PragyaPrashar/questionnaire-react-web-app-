@@ -22,7 +22,9 @@ const Questions = (
 ) => {
 
     const [userName, setUserName] = useState("");
-
+    const {answers} = useSelector(state => state.answersData)
+    let answerObj = answers.filter(a=>a.question_id===postItem._id)
+    console.log("filtered ans is ",answerObj)
     const dispatch = useDispatch();
     const deletePostHandler = (_id) => {
         console.log("Inside delete handler with id ", postItem._id);
@@ -57,8 +59,10 @@ const Questions = (
             </div>
 
             <h5 className="wd-text">{postItem.question}</h5>
-            <span className="wd-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
-            {/*Aish has to give me the link for details page.*/}
+            {
+                answerObj[0] &&
+                <span className="wd-text">{answerObj[0].answers}</span>
+            }            {/*Aish has to give me the link for details page.*/}
             <span ><Link to="/quans/001/details">see more</Link></span>
 
 
