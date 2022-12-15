@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 //import "./index.css";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {deletePostsThunk, findPostsThunk} from "../../services/post-thunks";
 import {getUserFromId} from "../login/login-service";
 import {createAnswersThunk} from "../../services/answers-thunks";
@@ -27,13 +27,18 @@ const QuestionsOnly = ({postItem}) => {
         }
     }
 
+    // const currentLoggedInUser = useSelector(s=>s.users.currentUser)
+    // console.log("currentLoggedInUser:",currentLoggedInUser._id)
+
     const postAnswer = ()=>{
         let today = new Date();
         let options = {year: "numeric",month:"long",day:"numeric"}
         let formattedDate = today.toLocaleDateString(undefined,options)
+
         const ansObj = {
             _id: new Date().getTime(),
             question_id: postItem._id,
+            //user_id: currentLoggedInUser._id,
             user_id: userObj._id,
             answers: answerText,
             time: formattedDate,
