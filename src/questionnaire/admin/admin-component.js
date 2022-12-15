@@ -62,7 +62,7 @@ const AdminComponent = ()=>{
 
                    <img alt="" className="wd-img-size" src="../../../images/registered.png"/>
                    {
-                       users && <h3>Registered Users { users.length }</h3>
+                       users && <h3>Registered Users { users.length-1 }</h3>
                    }
 
                </div>
@@ -71,7 +71,7 @@ const AdminComponent = ()=>{
                     <img alt="" className="wd-img-size-second" src="../../../images/questions.png"/>
                     {
                         posts &&
-                        <h3>Questions Posted {posts.length} </h3>
+                        <h3>Questions Posted {posts.length-2} </h3>
                     }
 
                 </div>

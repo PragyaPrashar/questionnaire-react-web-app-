@@ -116,10 +116,10 @@ const QuestionsAnswers = (
                            onClick={() => deletePostHandler(postItem._id)}></i>
                     </div>
 
-                    <h5 className=" mt-2 wd-text">{postItem.question}</h5>
+                   <div className="mb-1"> <h5 className=" mt-2 wd-text ">{postItem.question}</h5></div>
                     {
                         answerObj[0] &&
-                        <span className="wd-text">{answerObj[0].answers}</span>
+                        <div className="mt-1"><span className="wd-text">{answerObj[0].answers}</span></div>
                     }
 
                     {/*Aish has to give me the link for details page.*/}
