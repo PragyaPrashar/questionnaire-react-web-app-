@@ -23,6 +23,12 @@ const Navigation=()=>{
         dispatch(setSearchField(searchText))
         navigate("/quans/search")
     }
+    // const profileHandler=()=>{
+    //     const obj = { state: {
+    //             data: currentLoggedInUser
+    //         } }
+    //     navigate("/quans/profile",obj)
+    // }
     return(
         <>
 
@@ -37,7 +43,7 @@ const Navigation=()=>{
               <Link to="/quans/questions">  <i className="bi bi-question-square fs-4 text-light wd-pos"></i></Link>
             </div>
             <div className="col-1 ">
-                <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i>
+                <Link to="/quans/answers">   <i className="bi  bi-pencil-square fs-4 text-light wd-pos"></i></Link>
             </div>
             <div className="col-1 ">
                 <Link to="/quans/users"><i className="bi bi-people-fill fs-4 text-light wd-pos"></i></Link>
@@ -54,6 +60,7 @@ const Navigation=()=>{
                 currentLoggedInUser &&
                 <div className="col-1">
                     <Link to="/quans/profile"><img alt="" src="../../../images/profile-pic.jpg" className="wd-profile rounded-circle shadow mt-2 ms-lg-3"/></Link>
+                    {/*<img alt="" src="../../../images/profile-pic.jpg" className="wd-profile rounded-circle shadow mt-2 ms-lg-3" onClick={profileHandler}/>*/}
                 </div>
 
             }

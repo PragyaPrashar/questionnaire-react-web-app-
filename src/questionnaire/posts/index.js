@@ -30,7 +30,7 @@ const Posts =()=>{
                         }
 
                         {
-                          posts.map(item=> <QuestionsAnswers key={item._id} postItem={item}/>)
+                          posts.map((item,index)=> <QuestionsAnswers key={item._id} postItem={item} index={index}/>)
                         }
 
                     </ul>

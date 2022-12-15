@@ -6,7 +6,8 @@ import 'reactjs-popup/dist/index.css';
 import NewsComponent from "../newsAPI";
 import WeatherComponent from "../weatherAPI";
 import {useNavigate} from "react-router-dom";
-import ModalComponent from "../modal/modalComponent";
+import QuestionPostedModal from "./question-posted-modal";
+import ModalComponent from "../modal/modalComponent.js";
 const Questions = () => {
 
     let [questionasked, setWhatsHappening] = useState('');
@@ -15,6 +16,7 @@ const Questions = () => {
     // const navigate = useNavigate();
 
     const [showModal, setShowModal] = useState(false);
+    const [questionPosted, setQuestionPosted] = useState(false);
 
 
     const textAreaHandler = (event) => {
@@ -28,18 +30,23 @@ const Questions = () => {
             setShowModal(true)
         }else{
 
+            var today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = today.toLocaleDateString(undefined,options)
+
             const questionObj = {
 
                 _id: new Date().getTime(),
                 question_img: "../../../images/profile-pic.jpg",
-                time: 1,
+                time: formattedDate,
                 genre: selectedGenre,
-                answers: [1, 2, 3],
+                answers: [],
                 user_id: currentLoggedInUser._id,
                 question: questionasked
 
             }
             disPatch(createPostsThunk(questionObj));
+            setQuestionPosted(true)
         }
 
 
@@ -95,28 +102,10 @@ const Questions = () => {
                     </div>
                     <div className="col-2 mt-5">
 
-
-
-                        {/*<Popup trigger={<button*/}
-                        {/*    className=" mt-5 bg-gradient bg-dark rounded-pill text-light ms-3 border-0 w-75 shadow"*/}
-                        {/*    onClick={postClickHandler}> Ask*/}
-                        {/*</button>}*/}
-                        {/*       position="right center">*/}
-                        {/*    <div>Your question is successfully asked!</div>*/}
-                        {/*    /!*<button>Click here</button>*!/*/}
-                        {/*</Popup>*/}
-
-
                         <button
                              className=" mt-5  bg-dark rounded-pill text-light ms-3 border-0 w-75 shadow"
                             onClick={postClickHandler}> Ask
                         </button>
-
-
-
-
-
-
 
                     </div>
 
@@ -130,6 +119,10 @@ const Questions = () => {
                 <WeatherComponent/>
             </div>
         </div>
+        {
+            questionPosted && <QuestionPostedModal initialValue={true}></QuestionPostedModal>
+        }
+
 
     </>);
 }

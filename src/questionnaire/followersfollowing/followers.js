@@ -4,9 +4,14 @@ import {useDispatch, useSelector} from "react-redux";
 import FollowerComponent from "./follower-component";
 import {findUsersThunk} from "../../services/profile-thunks";
 
-const Followers = () => {
+const Followers = (
+    {user}
+) => {
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
-    let arr = currentLoggedInUser.followers;
+    // let arr = currentLoggedInUser.followers;
+    console.log("current user is " +user)
+    let arr = user.followers;
+    console.log("clicked user followers are"+arr)
     let {users,loading}=useSelector(state=>state.profileusers)
     let filteredUsers=users.filter(u=>arr.includes(u._id))
     console.log("array is" ,filteredUsers)
