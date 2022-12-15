@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import "./index.css";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {deletePostsThunk} from "../../services/post-thunks";
 import {Link, useNavigate} from "react-router-dom";
 import {getUserByIdThunk} from "../highlight/edit-profile-thunk";
 import {getUserByIdService} from "../highlight/edit-profile-service";
 import {getUserFromId} from "../login/login-service";
+import {findAnswersThunk} from "../../services/answers-thunks";
 
 const QuestionsAnswers = (
     {
@@ -25,6 +26,7 @@ const QuestionsAnswers = (
     const [userObj,setUserObj] = useState(null);
     let a = null;
     // const[visitedProfile,setVisitedProfile]=useState(false);
+    const {answers} = useSelector(state => state.answersData)
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -34,13 +36,18 @@ const QuestionsAnswers = (
 
     }
 
+    console.log("answers array is ",answers)
+
+    let answerObj = answers.filter(a=>a.question_id===postItem._id)
+    console.log("filtered ans is ",answerObj)
+
     // const promiseUserObj = getUserFromId(postItem.user_id).then((s)=>s);
     // promiseUserObj.then(result => {
     //     console.log("result is ",result.username)
     //     setUserName(result.username);
     // });
     useEffect(() => {
-
+        dispatch(findAnswersThunk())
         const promiseUserObj = getUserFromId(postItem.user_id);
         promiseUserObj.then(result =>{
 
@@ -60,9 +67,6 @@ const QuestionsAnswers = (
         const obj = { state: {
                 data: userObj
             } }
-
-
-
 
         navigate("/quans/profile",obj)
 
@@ -102,7 +106,11 @@ const QuestionsAnswers = (
                     </div>
 
                     <h5 className="wd-text">{postItem.question}</h5>
-                    <span className="wd-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+                    {
+                        answerObj[0] &&
+                        <span className="wd-text">{answerObj[0].answers}</span>
+                    }
+
                     {/*Aish has to give me the link for details page.*/}
                     <span ><Link to="/quans/001/details">see more</Link></span>
 
