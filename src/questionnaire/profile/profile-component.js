@@ -16,7 +16,6 @@ function ProfileComponent() {
 
 
     const currentLoggedInUser = useSelector(s=>s.users.currentUser)
-    const questionsAsked=currentLoggedInUser.questionsAsked
     console.log("this is profile component")
     const location = useLocation();
     let user = null;

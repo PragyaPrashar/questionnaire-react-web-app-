@@ -28,7 +28,7 @@ const navigate=useNavigate()
     }
 
     useEffect(() => {
-        if(currentLoggedInUser.username.includes("admin")){
+        if(currentLoggedInUser.username.toLowerCase().includes("admin")){
             setDisable(true)
         }
         // dispatch(findTuitsThunk());
@@ -44,13 +44,17 @@ const navigate=useNavigate()
                 </div>
                 <div className="col-7">
                     <span className="fw-bold display-6">{user.username}</span>
-                    <div className="text-secondary mt-2">
-                        <span className="text-secondary">{user.followers.length} followers</span>  &#x2022;
-                         <span className="text-secondary"> {user.following.length} following</span>
-                        <div className="mt-2">
-                            <span className="text-secondary">{user.user_status}</span>
+                    {
+                        !disable &&
+                        <div className="text-secondary mt-2">
+                            <span className="text-secondary">{user.followers.length} followers</span>  &#x2022;
+                            <span className="text-secondary"> {user.following.length} following</span>
+                            <div className="mt-2">
+                                <span className="text-secondary">{user.user_status}</span>
+                            </div>
                         </div>
-                    </div>
+                    }
+
                 </div>
                 {
                     currentLoggedInUser._id ===user._id &&

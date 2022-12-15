@@ -25,8 +25,9 @@ const ProfileQuestions =(
     // }
     let filteredPosts = posts.filter(post => post.user_id=== user._id)
     const dispatch = useDispatch();
+    console.log("current logged in user",currentLoggedInUser)
     useEffect(() => {
-        if(currentLoggedInUser.username.includes("admin")){
+        if(currentLoggedInUser.username.toLowerCase().includes("admin")){
             setDisable(true)
         }
         dispatch(findPostsThunk());
