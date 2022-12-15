@@ -61,6 +61,10 @@ const DetailsComponent=()=>{
                     </div>
                     <div className="  pt-5 pb-3 pe-3 rounded border-bottom border-top border-left w-100 h-75 ps-2 me-2 shadow-sm ">
                         <span className=" font-weight-bold">{answer}</span>
+                        <div>
+                            <span className="ps-4 font-weight-bold ">{answerO.username}</span>
+                            <span className=" ps-4 font-weight-bold">{answerO.user_id}</span>
+                        </div>
                     </div>
                     </div>
 
