@@ -22,6 +22,7 @@
 
 .wd-search-border {
     border: solid 1px gray;
+    width: 100%;
 }
 
 .wd-pos {
@@ -38,3 +39,43 @@
     position: relative;
     top: 20px;
 }
+
+@media (max-width: 992px) {
+.wd-search-border{
+    width: 70%;
+}
+}
+@media (min-width: 768px) {
+    .wd-search {
+        position: relative;
+        top: -11px;
+        left: -54px;
+    }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+    .wd-search {
+        position: relative;
+        top: -11px;
+        left: -54px;
+    }
+}
+@media (min-width: 992px) {
+    .wd-input-container{
+        position: absolute;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .wd-logo{
+        position: relative;
+        left: -30px;
+    }
+    .wd-house{
+        position: relative;
+        left: -30px;
+    }
+    .wd-search-col{
+        position: relative;
+        left: -40px;
+    }
+}
+

@@ -83,12 +83,12 @@ const QuestionsAnswers = (
 
             {
                 userObj &&
-                <div className="row mt-2 border-bottom pb-1 shadow-sm">
-                    <div className="col-1 mt-2">
+                <div className="row mb-4 mt-2 ms-2 me-2 border-bottom pb-1 shadow-sm">
+                    <div className="col-1 mt-2 me-sm-3 me-md-0">
                         <img alt="" src="../../../images/profile-pic.jpg"
                              className="wd-profile-pic-q rounded-circle shadow"/>
                     </div>
-                    <div className="col-10 mt-2">
+                    <div className="col-sm-8 col-md-9  ms-sm-4 ms-lg-3 ms-xl-2 mt-2">
 
                         {/*<Link to="/quans/visitedProfile" className="text-decoration-none text-dark" ><h6>{userName}</h6></Link>*/}
 
@@ -105,7 +105,7 @@ const QuestionsAnswers = (
                            onClick={() => deletePostHandler(postItem._id)}></i>
                     </div>
 
-                    <h5 className="wd-text">{postItem.question}</h5>
+                    <h5 className=" mt-2 wd-text">{postItem.question}</h5>
                     {
                         answerObj[0] &&
                         <span className="wd-text">{answerObj[0].answers}</span>

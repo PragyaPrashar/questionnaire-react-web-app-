@@ -17,7 +17,7 @@ const Posts =()=>{
     return(
         <>
 
-            <div className="row mt-2">
+            <div className="row">
                 {
                     <ul className="list-group">
                         {
